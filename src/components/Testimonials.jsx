@@ -6,55 +6,100 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section style={{ background: '#ffffff', padding: '120px 0' }}>
-      <div className="max-w-[1200px] mx-auto" style={{ padding: '0 28px' }}>
-        <div className="eyebrow mb-5">★ THEY MADE THE LEAP</div>
+    <section style={{ background: '#ffffff', padding: '136px 0 80px' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
+
         <h2
-          className="font-display font-bold m-0 mb-12"
           style={{
-            fontSize: 'clamp(40px, 5vw, 64px)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.035em',
-            color: '#0a0a0a',
-            textWrap: 'balance',
+            fontSize: 42,
+            lineHeight: 1.06,
+            fontWeight: 500,
+            color: '#000000',
+            margin: '0 0 56px',
+            fontFamily: '"DM Sans", Arial, sans-serif',
+            textAlign: 'center',
           }}
         >
           The number on the offer letter doesn't feel real.
         </h2>
 
-        <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(3,1fr)' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(3, 1fr)',
+            gap: 16,
+          }}
+        >
           {TESTIMONIALS.map((x, i) => (
             <figure
               key={i}
-              className="m-0 rounded-[16px] p-8 flex flex-col"
-              style={{ background: '#ffffff', border: '1px solid #e5e7eb' }}
+              style={{
+                margin: 0,
+                background: '#f6f7f8',
+                border: '1px solid #eeeef2',
+                borderRadius: 4,
+                padding: 32,
+                display: 'flex',
+                flexDirection: 'column',
+              }}
             >
               <div
                 style={{
-                  fontSize: 52,
+                  fontSize: 36,
                   lineHeight: 1,
-                  marginBottom: 4,
-                  color: '#2d2de0',
-                  fontFamily: 'var(--font-serif)',
-                  fontStyle: 'italic',
+                  marginBottom: 12,
+                  color: '#183fd9',
+                  fontFamily: '"DM Sans", Arial, sans-serif',
+                  fontWeight: 500,
                 }}
               >
                 "
               </div>
               <blockquote
-                className="font-display flex-1 m-0 mb-6"
-                style={{ fontSize: 17, lineHeight: 1.6, color: '#0a0a0a' }}
+                style={{
+                  flex: 1,
+                  margin: '0 0 24px',
+                  fontSize: 16,
+                  lineHeight: 1.6,
+                  color: '#000000',
+                  fontFamily: '"DM Sans", Arial, sans-serif',
+                  fontWeight: 400,
+                }}
               >
                 {x.q}
               </blockquote>
-              <figcaption className="flex items-center gap-3 pt-5" style={{ borderTop: '1px solid #e5e7eb' }}>
+              <figcaption
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                  paddingTop: 20,
+                  borderTop: '1px solid #eeeef2',
+                }}
+              >
                 <div
-                  className="w-9 h-9 rounded-full flex-shrink-0"
-                  style={{ background: '#2d2de0' }}
+                  style={{
+                    width: 36,
+                    height: 36,
+                    borderRadius: '50%',
+                    background: '#183fd9',
+                    flexShrink: 0,
+                  }}
                 />
                 <div>
-                  <div className="font-display font-semibold text-[13.5px]" style={{ color: '#0a0a0a' }}>{x.a}</div>
-                  <div className="text-[12px]" style={{ color: '#9ca3af' }}>{x.r}</div>
+                  <div
+                    style={{
+                      fontSize: 13.5,
+                      fontWeight: 500,
+                      color: '#000000',
+                      fontFamily: '"DM Sans", Arial, sans-serif',
+                    }}
+                  >
+                    {x.a}
+                  </div>
+                  <div style={{ fontSize: 12, color: '#9ca3af', fontFamily: '"DM Sans", Arial, sans-serif' }}>
+                    {x.r}
+                  </div>
                 </div>
               </figcaption>
             </figure>

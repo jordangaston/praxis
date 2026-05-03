@@ -7,40 +7,77 @@ const FAQS = [
 
 export default function FAQ() {
   return (
-    <section style={{ background: '#ffffff', padding: '120px 0' }}>
-      <div className="max-w-[1200px] mx-auto" style={{ padding: '0 28px' }}>
-        <div className="eyebrow mb-5">★ QUESTIONS</div>
+    <section style={{ background: '#ffffff', padding: '136px 0 80px' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
         <h2
-          className="font-display font-bold m-0 mb-12"
           style={{
-            fontSize: 'clamp(40px, 5vw, 64px)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.035em',
-            color: '#0a0a0a',
+            fontSize: 42,
+            lineHeight: 1.06,
+            fontWeight: 500,
+            color: '#000000',
+            margin: '0 0 56px',
+            fontFamily: '"DM Sans", Arial, sans-serif',
+            textAlign: 'center',
           }}
         >
           You ask, we answer.
         </h2>
 
-        <div style={{ maxWidth: 760 }}>
+        <div style={{ maxWidth: 760, margin: '0 auto' }}>
           {FAQS.map((f, i) => (
-            <details key={i} className="group" style={{ borderTop: '1px solid #e5e7eb', padding: '22px 0' }}>
+            <details
+              key={i}
+              style={{ borderTop: '1px solid #eeeef2', padding: '22px 0' }}
+            >
               <summary
-                className="font-display font-medium flex justify-between items-center cursor-pointer list-none"
-                style={{ fontSize: 19, letterSpacing: '-0.02em', color: '#0a0a0a' }}
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  listStyle: 'none',
+                  fontSize: 19,
+                  fontWeight: 500,
+                  color: '#000000',
+                  fontFamily: '"DM Sans", Arial, sans-serif',
+                }}
               >
                 {f.q}
                 <span
-                  className="faq-plus w-8 h-8 rounded-full grid place-items-center text-[16px] font-bold flex-shrink-0 ml-6"
-                  style={{ background: '#0a0a0a', color: '#ffffff' }}
+                  className="faq-plus"
+                  style={{
+                    width: 32,
+                    height: 32,
+                    borderRadius: 4,
+                    display: 'grid',
+                    placeItems: 'center',
+                    fontSize: 16,
+                    fontWeight: 500,
+                    flexShrink: 0,
+                    marginLeft: 24,
+                    background: '#f6f7f8',
+                    border: '1px solid #eeeef2',
+                    color: '#000000',
+                  }}
                 >
                   +
                 </span>
               </summary>
-              <p className="text-[16px] leading-[1.65] mt-4 m-0" style={{ color: '#4b5563' }}>{f.a}</p>
+              <p
+                style={{
+                  fontSize: 16,
+                  lineHeight: 1.65,
+                  marginTop: 16,
+                  marginBottom: 0,
+                  color: '#6f7790',
+                  fontFamily: '"DM Sans", Arial, sans-serif',
+                }}
+              >
+                {f.a}
+              </p>
             </details>
           ))}
-          <div style={{ borderTop: '1px solid #e5e7eb' }} />
+          <div style={{ borderTop: '1px solid #eeeef2' }} />
         </div>
       </div>
     </section>

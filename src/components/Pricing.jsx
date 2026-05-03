@@ -2,74 +2,135 @@ const FEATURES = ['Unlimited mock interviews', 'Real FAANG rubrics', 'All interv
 
 export default function Pricing() {
   return (
-    <section id="pricing" style={{ background: '#ffffff', padding: '120px 0' }}>
-      <div className="max-w-[1200px] mx-auto" style={{ padding: '0 28px' }}>
-        <div className="eyebrow mb-5">★ PRICING</div>
-        <div className="grid items-center gap-16" style={{ gridTemplateColumns: '1fr 1fr' }}>
-          <h2
-            className="font-display font-bold m-0"
-            style={{
-              fontSize: 'clamp(40px, 5vw, 64px)',
-              lineHeight: 1.05,
-              letterSpacing: '-0.035em',
-              color: '#0a0a0a',
-              textWrap: 'balance',
-            }}
-          >
-            One human session. Or unlimited AI ones.
-          </h2>
+    <section id="pricing" style={{ background: '#ffffff', padding: '136px 0 80px' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px', textAlign: 'center' }}>
 
-          {/* Pricing card */}
-          <div
-            className="rounded-[20px] p-10 relative"
-            style={{ background: '#ffffff', border: '1px solid #e5e7eb' }}
-          >
-            <div
-              className="absolute rounded-full font-mono text-[11px] font-bold tracking-[0.6px] px-4 py-1.5 text-white"
-              style={{ top: -14, right: 24, background: '#2d2de0' }}
+        <h2
+          style={{
+            fontSize: 42,
+            lineHeight: 1.06,
+            fontWeight: 500,
+            color: '#000000',
+            margin: '0 0 56px',
+            fontFamily: '"DM Sans", Arial, sans-serif',
+          }}
+        >
+          One human session. Or unlimited AI ones.
+        </h2>
+
+        {/* Pricing card — centered, max-width 440px */}
+        <div
+          style={{
+            maxWidth: 440,
+            margin: '0 auto',
+            background: '#f6f7f8',
+            border: '1px solid #eeeef2',
+            borderRadius: 4,
+            padding: 40,
+            position: 'relative',
+            textAlign: 'left',
+          }}
+        >
+          {/* FIRST MOCK FREE badge */}
+          <div style={{ marginBottom: 16 }}>
+            <span
+              style={{
+                display: 'inline-block',
+                background: '#183fd9',
+                color: '#ffffff',
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: '0.06em',
+                textTransform: 'uppercase',
+                fontFamily: '"DM Sans", Arial, sans-serif',
+                padding: '4px 12px',
+                borderRadius: 4,
+              }}
             >
               FIRST MOCK FREE
-            </div>
-
-            <div
-              className="font-mono font-semibold text-[11px] tracking-[1.2px] mb-3"
-              style={{ color: '#2d2de0', textTransform: 'uppercase' }}
-            >
-              OFFERED UNLIMITED
-            </div>
-
-            <div className="flex items-baseline gap-2 mb-1">
-              <span
-                className="font-display font-bold"
-                style={{ fontSize: 84, lineHeight: 1, letterSpacing: '-0.04em', color: '#0a0a0a' }}
-              >
-                $49
-              </span>
-              <span className="text-[16px]" style={{ color: '#9ca3af' }}>/mo</span>
-            </div>
-            <div className="text-[13px] mb-8" style={{ color: '#9ca3af' }}>vs. $200–400 per human peer mock</div>
-
-            <ul className="list-none p-0 m-0 mb-8 flex flex-col gap-3 text-[15px]">
-              {FEATURES.map(f => (
-                <li key={f} className="flex items-center gap-3" style={{ color: '#0a0a0a' }}>
-                  <span
-                    className="w-5 h-5 rounded-full grid place-items-center text-[11px] font-bold flex-shrink-0 text-white"
-                    style={{ background: '#2d2de0' }}
-                  >
-                    ✓
-                  </span>
-                  {f}
-                </li>
-              ))}
-            </ul>
-
-            <button
-              className="btn-primary"
-              style={{ width: '100%', justifyContent: 'center', fontSize: 15, padding: '14px 24px', borderRadius: 6 }}
-            >
-              Start free mock →
-            </button>
+            </span>
           </div>
+
+          <div
+            style={{
+              fontSize: 11,
+              fontWeight: 500,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              color: '#6f7790',
+              fontFamily: '"DM Sans", Arial, sans-serif',
+              marginBottom: 12,
+            }}
+          >
+            OFFERED UNLIMITED
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
+            <span
+              style={{
+                fontSize: 72,
+                lineHeight: 1,
+                fontWeight: 500,
+                color: '#000000',
+                fontFamily: '"DM Sans", Arial, sans-serif',
+              }}
+            >
+              $49
+            </span>
+            <span style={{ fontSize: 16, color: '#9ca3af', fontFamily: '"DM Sans", Arial, sans-serif' }}>/mo</span>
+          </div>
+          <div
+            style={{
+              fontSize: 13,
+              marginBottom: 32,
+              color: '#9ca3af',
+              fontFamily: '"DM Sans", Arial, sans-serif',
+            }}
+          >
+            vs. $200–400 per human peer mock
+          </div>
+
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {FEATURES.map(f => (
+              <li
+                key={f}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: 12,
+                  fontSize: 15,
+                  color: '#000000',
+                  fontFamily: '"DM Sans", Arial, sans-serif',
+                }}
+              >
+                <span
+                  style={{
+                    width: 18,
+                    height: 18,
+                    borderRadius: '50%',
+                    background: '#183fd9',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: 10,
+                    fontWeight: 500,
+                    color: '#ffffff',
+                    flexShrink: 0,
+                  }}
+                >
+                  ✓
+                </span>
+                {f}
+              </li>
+            ))}
+          </ul>
+
+          <button
+            className="btn-primary"
+            style={{ width: '100%', justifyContent: 'center' }}
+          >
+            Start free mock →
+          </button>
         </div>
       </div>
     </section>

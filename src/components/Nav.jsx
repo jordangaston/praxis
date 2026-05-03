@@ -15,10 +15,10 @@ export default function Nav() {
         <span
           style={{
             color: '#fff',
-            fontSize: 12,
-            fontFamily: 'var(--font-display)',
-            fontWeight: 600,
-            letterSpacing: '0.08em',
+            fontSize: 11,
+            fontFamily: '"DM Sans", Arial, sans-serif',
+            fontWeight: 500,
+            letterSpacing: '0.06em',
             textTransform: 'uppercase',
           }}
         >
@@ -29,12 +29,12 @@ export default function Nav() {
           style={{
             color: '#fff',
             border: '1px solid rgba(255,255,255,0.60)',
-            borderRadius: 6,
+            borderRadius: 4,
             padding: '4px 12px',
             fontSize: 11,
-            fontFamily: 'var(--font-display)',
-            fontWeight: 600,
-            letterSpacing: '0.08em',
+            fontFamily: '"DM Sans", Arial, sans-serif',
+            fontWeight: 500,
+            letterSpacing: '0.06em',
             textTransform: 'uppercase',
             transition: 'border-color 150ms ease',
           }}
@@ -50,7 +50,7 @@ export default function Nav() {
           top: 0,
           zIndex: 50,
           background: '#ffffff',
-          borderBottom: '1px solid #e5e7eb',
+          borderBottom: '1px solid #eeeef2',
           padding: '12px 28px',
           display: 'flex',
           alignItems: 'center',
@@ -58,22 +58,27 @@ export default function Nav() {
         }}
       >
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2" style={{ textDecoration: 'none' }}>
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="7" width="20" height="4" rx="2" fill="#0a0a0a" opacity="0.25" />
-            <rect x="1" y="12" width="20" height="4" rx="2" fill="#0a0a0a" opacity="0.55" />
-            <rect x="1" y="17" width="20" height="4" rx="2" fill="#0a0a0a" />
+        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 8, textDecoration: 'none' }}>
+          <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="5" width="20" height="3" rx="1" fill="#000000" opacity="0.25" />
+            <rect x="1" y="10" width="20" height="3" rx="1" fill="#000000" opacity="0.55" />
+            <rect x="1" y="15" width="20" height="3" rx="1" fill="#000000" />
           </svg>
           <span
-            className="font-display font-semibold"
-            style={{ fontSize: 15, color: '#0a0a0a', letterSpacing: '-0.3px' }}
+            style={{
+              fontSize: 15,
+              fontWeight: 500,
+              color: '#000000',
+              letterSpacing: '-0.3px',
+              fontFamily: '"DM Sans", Arial, sans-serif',
+            }}
           >
             Offered.
           </span>
         </a>
 
         {/* Center links */}
-        <div className="flex items-center gap-6">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
           {[
             { label: 'HOW IT WORKS', href: '#how-it-works' },
             { label: 'INTERVIEW TYPES', href: '#interview-types' },
@@ -83,11 +88,11 @@ export default function Nav() {
               key={label}
               href={href}
               style={{
-                fontSize: 13,
-                fontFamily: 'var(--font-display)',
+                fontSize: 11,
+                fontFamily: '"DM Sans", Arial, sans-serif',
                 fontWeight: 500,
-                color: 'rgba(10,10,10,0.70)',
-                letterSpacing: '0.08em',
+                color: 'rgba(0,0,0,0.70)',
+                letterSpacing: '0.06em',
                 textTransform: 'uppercase',
                 transition: 'color 150ms ease',
               }}
@@ -98,18 +103,19 @@ export default function Nav() {
         </div>
 
         {/* Right actions */}
-        <div className="flex items-center gap-3">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
           <a
             href="#"
             style={{
-              fontSize: 13,
-              fontFamily: 'var(--font-display)',
+              fontSize: 11,
+              fontFamily: '"DM Sans", Arial, sans-serif',
               fontWeight: 500,
-              color: '#0a0a0a',
-              border: '1px solid #0a0a0a',
-              borderRadius: 6,
+              color: '#000000',
+              background: '#eeeeef',
+              border: '1px solid #e2e3e9',
+              borderRadius: 4,
               padding: '8px 16px',
-              letterSpacing: '0.04em',
+              letterSpacing: '0.06em',
               textTransform: 'uppercase',
               transition: 'background 150ms ease',
             }}
@@ -117,15 +123,16 @@ export default function Nav() {
             SIGN IN
           </a>
           <button
-            className="font-display font-semibold"
             style={{
-              background: '#0a0a0a',
-              color: '#fff',
-              border: 'none',
-              borderRadius: 6,
+              background: '#000000',
+              color: '#ffffff',
+              border: '1px solid #000000',
+              borderRadius: 4,
               padding: '8px 16px',
-              fontSize: 13,
-              letterSpacing: '0.04em',
+              fontSize: 11,
+              fontFamily: '"DM Sans", Arial, sans-serif',
+              fontWeight: 500,
+              letterSpacing: '0.06em',
               textTransform: 'uppercase',
               cursor: 'pointer',
               transition: 'opacity 150ms ease',

@@ -2,23 +2,30 @@ const LOGOS = ['AMAZON', 'META', 'APPLE', 'MICROSOFT', 'ROBLOX', 'STRIPE', 'AIRB
 
 export default function Hero() {
   return (
-    <section style={{ background: '#ffffff', paddingTop: 0, paddingBottom: 0 }}>
+    <section style={{ background: '#ffffff' }}>
       {/* Hero content */}
       <div
-        className="max-w-[1200px] mx-auto text-center flex flex-col items-center"
-        style={{ padding: '120px 28px 100px' }}
+        style={{
+          maxWidth: 1200,
+          margin: '0 auto',
+          padding: '140px 28px 80px',
+          textAlign: 'center',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
       >
         {/* H1 */}
         <h1
-          className="font-display m-0"
           style={{
-            fontSize: 'clamp(64px, 8vw, 108px)',
-            lineHeight: 1.0,
-            letterSpacing: '-0.04em',
-            fontWeight: 700,
-            maxWidth: 900,
-            color: '#0a0a0a',
-            textWrap: 'balance',
+            fontSize: 64,
+            lineHeight: 1.03,
+            letterSpacing: '-0.02em',
+            fontWeight: 500,
+            maxWidth: 800,
+            color: '#000000',
+            margin: 0,
+            fontFamily: '"DM Sans", Arial, sans-serif',
           }}
         >
           Nail the loop before you live it.
@@ -28,44 +35,32 @@ export default function Hero() {
         <p
           style={{
             fontSize: 18,
-            marginTop: 28,
-            maxWidth: 500,
-            lineHeight: 1.55,
-            color: '#4b5563',
-            fontFamily: 'var(--font-display)',
+            marginTop: 24,
+            marginBottom: 0,
+            maxWidth: 480,
+            lineHeight: 1.6,
+            color: '#6f7790',
+            fontFamily: '"DM Sans", Arial, sans-serif',
+            fontWeight: 400,
           }}
         >
           You fail FAANG interviews not because you can't do the job — but because you've never said it out loud under real pressure. Run the loop fifty times in here first.
         </p>
 
         {/* CTAs */}
-        <div className="flex gap-3 mt-8 justify-center flex-wrap">
-          <button className="btn-primary" style={{ fontSize: 15, padding: '13px 22px' }}>
+        <div style={{ display: 'flex', gap: 12, marginTop: 40, justifyContent: 'center', flexWrap: 'wrap' }}>
+          <button className="btn-primary">
             Start free mock interview →
           </button>
-          <button className="btn-secondary" style={{ fontSize: 15, padding: '13px 22px' }}>
-            See a session ▸
+          <button className="btn-secondary">
+            See a session
           </button>
         </div>
 
         {/* Social proof */}
-        <div className="flex items-center gap-4 mt-7 justify-center">
-          <div className="flex">
-            {[1, 2, 3, 4].map(i => (
-              <div
-                key={i}
-                className="w-8 h-8 rounded-full border-2 border-white"
-                style={{
-                  background: '#2d2de0',
-                  marginLeft: i === 1 ? 0 : -10,
-                }}
-              />
-            ))}
-          </div>
-          <span
-            style={{ fontSize: 14, color: '#4b5563', fontFamily: 'var(--font-display)' }}
-          >
-            <strong style={{ color: '#0a0a0a' }}>2,400+ engineers</strong> running loops right now.
+        <div style={{ marginTop: 32, textAlign: 'center' }}>
+          <span style={{ fontSize: 14, color: '#6f7790', fontFamily: '"DM Sans", Arial, sans-serif' }}>
+            2,400+ engineers running loops right now.
           </span>
         </div>
       </div>
@@ -73,39 +68,35 @@ export default function Hero() {
       {/* Logo strip */}
       <div
         style={{
-          background: '#ffffff',
-          borderTop: '1px solid #e5e7eb',
-          padding: '22px 28px',
+          borderTop: '1px solid #eeeef2',
+          padding: '24px 28px',
         }}
       >
         <div
-          className="max-w-[1200px] mx-auto flex items-center justify-between"
-          style={{ gap: 16 }}
+          style={{
+            maxWidth: 1200,
+            margin: '0 auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 16,
+          }}
         >
-          <span
-            style={{
-              fontSize: 11,
-              fontWeight: 600,
-              textTransform: 'uppercase',
-              letterSpacing: '0.12em',
-              whiteSpace: 'nowrap',
-              color: '#9ca3af',
-              fontFamily: 'var(--font-display)',
-            }}
-          >
-            HIRED AT
-          </span>
-          <div className="flex items-center justify-around flex-1 gap-4 flex-wrap">
-            {LOGOS.map(l => (
-              <span
-                key={l}
-                className="font-display font-semibold"
-                style={{ fontSize: 13, letterSpacing: '0.06em', color: '#9ca3af', textTransform: 'uppercase' }}
-              >
-                {l}
-              </span>
-            ))}
-          </div>
+          {LOGOS.map(l => (
+            <span
+              key={l}
+              style={{
+                fontSize: 11,
+                fontWeight: 500,
+                letterSpacing: '0.08em',
+                color: '#9ca3af',
+                textTransform: 'uppercase',
+                fontFamily: '"DM Sans", Arial, sans-serif',
+              }}
+            >
+              {l}
+            </span>
+          ))}
         </div>
       </div>
     </section>

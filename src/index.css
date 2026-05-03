@@ -1,45 +1,16 @@
 @import "tailwindcss";
 
-@font-face {
-  font-family: 'Geist';
-  src: url('/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('/fonts/geist-sans/Geist-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('/fonts/geist-sans/Geist-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('/fonts/geist-sans/Geist-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-}
-
 @theme {
-  --color-ink:        #0a0a0a;
-  --color-ink-dim:    #4b5563;
+  --color-ink:        #000000;
+  --color-ink-dim:    #6f7790;
   --color-ink-faint:  #9ca3af;
-  --color-border:     #e5e7eb;
-  --color-border-md:  #d1d5db;
-  --color-accent:     #2d2de0;
+  --color-border:     #eeeef2;
+  --color-accent:     #183fd9;
   --color-surface:    #ffffff;
-  --color-surface-alt:#f9fafb;
-  --gradient-accent:  linear-gradient(118deg, #2d2de0 0%, #2d2de0 100%);
+  --color-surface-alt:#f6f7f8;
+  --color-announce:   #2d2de0;
 
-  --font-display: "Plus Jakarta Sans", "Geist", system-ui, sans-serif;
-  --font-sans:    "Geist", "Plus Jakarta Sans", system-ui, sans-serif;
-  --font-serif:   "Instrument Serif", Georgia, serif;
-  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
+  --font-sans: "DM Sans", Arial, sans-serif;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -48,8 +19,8 @@ html, body { margin: 0; padding: 0; }
 
 body {
   background-color: #ffffff;
-  color: #0a0a0a;
-  font-family: var(--font-sans);
+  color: #000000;
+  font-family: "DM Sans", Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -61,62 +32,59 @@ details summary::-webkit-details-marker { display: none; }
 details[open] .faq-plus { transform: rotate(45deg); }
 .faq-plus { transition: transform 200ms ease; }
 
-/* ── Typography helpers ── */
-.font-display { font-family: var(--font-display); }
-
-/* Accent quote mark — blue, for decorative use in testimonials only */
-.grad-text {
-  color: #2d2de0;
-}
-
 /* Eyebrow label */
 .eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #9ca3af;
-  font-weight: 600;
+  color: #6f7790;
 }
 
-/* ── Card ── */
+/* Card */
 .card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 1rem;
+  background: #f6f7f8;
+  border: 1px solid #eeeef2;
+  border-radius: 4px;
+  padding: 32px;
 }
 
-/* ── CTA buttons ── */
+/* CTA buttons */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: #0a0a0a;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 12px 20px;
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 600;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 4px;
+  padding: 14px 20px;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: opacity 150ms ease, transform 150ms ease;
+  transition: opacity 150ms ease;
 }
-.btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-primary:hover { opacity: 0.85; }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: transparent;
-  color: #0a0a0a;
-  border: 1px solid #0a0a0a;
-  border-radius: 6px;
-  padding: 12px 20px;
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 600;
+  background: #eeeeef;
+  color: #000000;
+  border: 1px solid #e2e3e9;
+  border-radius: 4px;
+  padding: 14px 20px;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   cursor: pointer;
   transition: background 150ms ease;
 }
-.btn-secondary:hover { background: rgba(0,0,0,0.04); }
+.btn-secondary:hover { background: #e4e4e5; }

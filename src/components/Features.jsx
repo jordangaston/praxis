@@ -7,42 +7,73 @@ const FEATS = [
 
 export default function Features() {
   return (
-    <section style={{ background: '#ffffff', padding: '120px 0' }}>
-      <div className="max-w-[1200px] mx-auto" style={{ padding: '0 28px' }}>
-        <div className="eyebrow mb-5">★ WHAT'S INSIDE</div>
+    <section style={{ background: '#ffffff', padding: '136px 0 80px' }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
         <h2
-          className="font-display font-bold m-0 mb-12"
           style={{
-            fontSize: 'clamp(40px, 5vw, 68px)',
-            lineHeight: 1.05,
-            letterSpacing: '-0.035em',
-            color: '#0a0a0a',
-            textWrap: 'balance',
+            fontSize: 42,
+            lineHeight: 1.06,
+            fontWeight: 500,
+            color: '#000000',
+            margin: '0 0 56px',
+            fontFamily: '"DM Sans", Arial, sans-serif',
+            textAlign: 'center',
           }}
         >
           Built like the real loop.
         </h2>
 
-        <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(2,1fr)' }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(4, 1fr)',
+            borderTop: '1px solid #eeeef2',
+            borderLeft: '1px solid #eeeef2',
+          }}
+        >
           {FEATS.map((f, i) => (
             <div
               key={i}
-              className="rounded-[16px] p-9"
-              style={{ background: '#ffffff', border: '1px solid #e5e7eb' }}
+              style={{
+                background: '#ffffff',
+                borderRight: '1px solid #eeeef2',
+                borderBottom: '1px solid #eeeef2',
+                padding: '40px 32px',
+              }}
             >
               <div
-                className="font-mono font-semibold text-[20px] mb-4"
-                style={{ color: '#2d2de0' }}
+                style={{
+                  fontSize: 13,
+                  color: '#183fd9',
+                  fontFamily: 'monospace',
+                  fontWeight: 500,
+                  marginBottom: 0,
+                }}
               >
                 0{i + 1}
               </div>
               <h3
-                className="font-display font-semibold m-0 mb-3"
-                style={{ fontSize: 22, letterSpacing: '-0.02em', color: '#0a0a0a' }}
+                style={{
+                  fontSize: 20,
+                  fontWeight: 500,
+                  color: '#000000',
+                  margin: '16px 0 12px',
+                  fontFamily: '"DM Sans", Arial, sans-serif',
+                }}
               >
                 {f.h}
               </h3>
-              <p className="text-[15px] leading-[1.6] m-0" style={{ color: '#4b5563' }}>{f.d}</p>
+              <p
+                style={{
+                  fontSize: 15,
+                  lineHeight: 1.6,
+                  color: '#6f7790',
+                  margin: 0,
+                  fontFamily: '"DM Sans", Arial, sans-serif',
+                }}
+              >
+                {f.d}
+              </p>
             </div>
           ))}
         </div>

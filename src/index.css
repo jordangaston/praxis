@@ -26,93 +26,71 @@
 }
 
 @theme {
-  /* Light lavender-to-pink gradient base */
-  --color-bg: #FAFAFF;
+  /* ── Wiza-calibrated palette ── */
+  --color-ink:        #26114a;
+  --color-ink-dim:    #615e6e;
+  --color-ink-faint:  #9491a1;
+  --color-border:     #e6e2e3;
+  --color-border-md:  #d0ccd4;
+  --color-purple:     #7e43ff;
+  --color-purple-deep:#4507cc;
+  --color-purple-text:#26114a;
+  --color-surface:    #ffffff;
+  --color-surface-alt:#f6f8fa;
+  --color-pink:       #ff66c1;
+  /* gradient — purple → magenta → pink (for italic serif accents only) */
+  --gradient-accent:  linear-gradient(118deg, #7e43ff 0%, #c44aff 50%, #ff66c1 100%);
 
-  /* Text */
-  --color-ink: #1C0F42;
-  --color-ink-dim: rgba(28, 15, 66, 0.58);
-  --color-ink-faint: rgba(28, 15, 66, 0.35);
-
-  /* Borders */
-  --color-rule: rgba(126, 67, 255, 0.10);
-  --color-rule2: rgba(126, 67, 255, 0.18);
-
-  /* Brand */
-  --color-purple: #7E43FF;
-  --color-purple-deep: #4507CC;
-  --color-purple-soft: #B59BFF;
-  --color-pink: #FF66C1;
-  --color-pink-soft: #FFAAD8;
-
-  /* Surfaces */
-  --color-surface: rgba(255, 255, 255, 0.70);
-  --color-surface-raised: rgba(255, 255, 255, 0.90);
-
-  /* Gradient — purple → pink */
-  --gradient-accent: linear-gradient(118deg, #7E43FF 0%, #C44AFF 50%, #FF66C1 100%);
-  --gradient-btn: linear-gradient(118deg, #6B2FEF 0%, #A93AFF 50%, #FF55B8 100%);
-
-  --font-sans: "Geist", "Inter", system-ui, -apple-system, sans-serif;
-  --font-serif: "Instrument Serif", "Source Serif Pro", Georgia, serif;
-  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+  --font-display: "Plus Jakarta Sans", "Geist", system-ui, sans-serif;
+  --font-sans:    "Geist", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-serif:   "Instrument Serif", Georgia, serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-#root {
-  min-height: 100vh;
-}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+#root { min-height: 100vh; }
 
 body {
-  background-color: #FAFAFF;
-  /* Soft gradient mesh — light lavender top-left, light pink bottom-right */
+  /* Exact Wiza background: top-to-bottom linear through lavender → purple-tint → pink-tint → warm white */
+  background-color: #efefff;
   background-image:
-    radial-gradient(ellipse 100% 70% at 0% 0%,   rgba(180, 140, 255, 0.22) 0%, transparent 55%),
-    radial-gradient(ellipse 80%  60% at 100% 100%, rgba(255, 102, 193, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 60%  50% at 60% 30%,  rgba(233, 220, 255, 0.50) 0%, transparent 60%),
-    linear-gradient(150deg, #EFEFFF 0%, #EDE5FF 30%, #FFE5F4 70%, #FFF7FB 100%);
+    radial-gradient(50% 74.51% at 50% 100%, rgba(255,255,255,0.50) 24%, rgba(255,255,255,0.16) 100%),
+    linear-gradient(180deg,
+      #efefff       0%,
+      #e9e2ffcc    16%,
+      #ffe1f1cc    62%,
+      #fff6f5     100%
+    );
   background-attachment: fixed;
-  color: var(--color-ink);
+  color: #26114a;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+details summary::-webkit-details-marker { display: none; }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-}
+details[open] .faq-plus { transform: rotate(45deg); }
+.faq-plus { transition: transform 200ms ease; }
 
-details summary::-webkit-details-marker {
-  display: none;
-}
+/* ── Typography helpers ── */
+.font-display { font-family: var(--font-display); }
 
-details[open] .faq-plus {
-  transform: rotate(45deg);
-}
-
-.faq-plus {
-  transition: transform 200ms ease;
-}
-
-/* Serif italic accent */
 .serif-it {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
+}
+
+/* Gradient text — used only on serif italic accent spans */
+.grad-text {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Eyebrow label */
@@ -121,22 +99,79 @@ details[open] .faq-plus {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-purple);
+  color: #7e43ff;
   font-weight: 600;
 }
 
-/* Gradient text — purple → pink */
-.grad-text {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* ── Section card — the core Wiza pattern ──
+   Sections float as white rounded cards on the gradient page background */
+.section-card {
+  background: #ffffff;
+  border-radius: 3.5rem;   /* 56px */
+  margin: 0 20px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
 }
 
-/* Glass card */
-.glass-card {
-  background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(126, 67, 255, 0.14);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+/* ── Wiza card ── */
+.card {
+  background: #ffffff;
+  border: 1px solid #e6e2e3;
+  border-radius: 1rem;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.06);
 }
+
+/* ── CTA button ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #7e43ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 150ms ease, transform 150ms ease;
+  box-shadow: 0 2px 12px rgba(126,67,255,0.35);
+}
+.btn-primary:hover { opacity: 0.90; transform: translateY(-1px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: #26114a;
+  border: 1px solid #e6e2e3;
+  border-radius: 8px;
+  padding: 12px 20px;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 150ms ease, background 150ms ease;
+}
+.btn-secondary:hover { border-color: #d0ccd4; background: rgba(0,0,0,0.02); }
+
+/* ── Hero orb animation ── */
+@keyframes wiza-orb {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
+}
+
+.hero-orb {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(116.3% 50% at 0% 50%, rgba(255,255,255,0.60), transparent);
+  animation: wiza-orb 3s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-orb:nth-child(1) { transform: rotate(-30deg);  animation-delay: 0s;   }
+.hero-orb:nth-child(2) { transform: rotate(-22deg);  animation-delay: 0.5s; }
+.hero-orb:nth-child(3) { transform: rotate(-15deg);  animation-delay: 1s;   }
+.hero-orb:nth-child(4) { transform: rotate(-165deg); animation-delay: 1.5s; }
+.hero-orb:nth-child(5) { transform: rotate(-158deg); animation-delay: 2s;   }
+.hero-orb:nth-child(6) { transform: rotate(-150deg); animation-delay: 2.5s; }

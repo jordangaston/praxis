@@ -12,18 +12,21 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <div style={{ minHeight: '100vh' }}>
+    <div style={{ minHeight: '100vh', paddingBottom: 0 }}>
       <Nav />
       <Hero />
-      <Problem />
-      <Plan />
-      <Features />
-      <Authority />
-      <Pricing />
-      <Testimonials />
-      <FAQ />
-      <FinalCTA />
-      <Footer />
+      {/* Each section is wrapped as a floating white card on the gradient */}
+      <div style={{ paddingTop: 24 }}>
+        <Problem />
+        <Plan />
+        <Features />
+        <Authority />
+        <Pricing />
+        <Testimonials />
+        <FAQ />
+        <FinalCTA />
+        <Footer />
+      </div>
     </div>
   );
 }

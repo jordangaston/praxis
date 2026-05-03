@@ -1,50 +1,39 @@
 const COLUMNS = [
   { h: 'Product', l: ['How it works', 'Interview types', 'Pricing', 'Demo'] },
   { h: 'Company', l: ['About', 'Team', 'Careers'] },
-  { h: 'Legal', l: ['Privacy', 'Terms'] },
+  { h: 'Legal',   l: ['Privacy', 'Terms'] },
 ];
 
 export default function Footer() {
   return (
-    <footer
-      style={{
-        borderTop: '1px solid rgba(126,67,255,0.10)',
-        background: 'rgba(255,255,255,0.50)',
-        backdropFilter: 'blur(16px)',
-        padding: '80px 0 40px',
-      }}
-    >
-      <div className="max-w-[1280px] mx-auto px-14">
+    <div style={{ padding: '8px 20px 28px' }}>
+      <footer
+        className="section-card"
+        style={{ padding: '64px 72px 40px' }}
+      >
+        {/* Wordmark */}
         <div
-          className="font-medium grad-text"
-          style={{ fontSize: 140, lineHeight: 0.85, letterSpacing: -4.5, marginBottom: 56 }}
+          className="font-display font-medium grad-text"
+          style={{ fontSize: 100, lineHeight: 0.9, letterSpacing: '-0.04em', marginBottom: 48 }}
         >
           Offered.★
         </div>
 
+        {/* Grid */}
         <div
-          className="grid gap-11 pt-11"
-          style={{
-            gridTemplateColumns: '2fr 1fr 1fr 1fr',
-            borderTop: '1px solid rgba(126,67,255,0.10)',
-          }}
+          className="grid gap-10 pt-10"
+          style={{ gridTemplateColumns: '2fr 1fr 1fr 1fr', borderTop: '1px solid #e6e2e3' }}
         >
-          <p
-            className="text-[14.5px] leading-[1.6] m-0"
-            style={{ maxWidth: 360, color: 'rgba(28,15,66,0.58)' }}
-          >
+          <p className="text-[14px] leading-[1.65] m-0" style={{ maxWidth: 340, color: '#615e6e' }}>
             Unlimited AI mock interviews built on real FAANG rubrics. From the team behind 100+ loops at Amazon, Meta, Apple, Microsoft, and Roblox.
           </p>
-
           {COLUMNS.map(c => (
             <div key={c.h}>
-              <div className="font-mono text-[11px] tracking-[1.4px] mb-4 font-semibold uppercase eyebrow">
-                {c.h}
-              </div>
-              <ul className="list-none p-0 m-0 flex flex-col gap-2.5 text-[14px]" style={{ color: 'rgba(28,15,66,0.55)' }}>
+              <div className="font-mono font-semibold text-[10.5px] tracking-[1.4px] uppercase mb-4" style={{ color: '#7e43ff' }}>{c.h}</div>
+              <ul className="list-none p-0 m-0 flex flex-col gap-2.5 text-[14px]" style={{ color: '#615e6e' }}>
                 {c.l.map(x => (
                   <li key={x}>
-                    <a href="#" className="transition-colors duration-150 hover:text-[#1C0F42]">{x}</a>
+                    <a href="#" className="hover:text-[#26114a] transition-colors duration-150">{x}</a>
                   </li>
                 ))}
               </ul>
@@ -52,14 +41,15 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Bottom bar */}
         <div
-          className="flex justify-between font-mono text-[11.5px] tracking-[0.5px] mt-11 pt-6"
-          style={{ borderTop: '1px solid rgba(126,67,255,0.10)', color: 'rgba(28,15,66,0.35)' }}
+          className="flex justify-between font-mono text-[11px] tracking-[0.5px] mt-10 pt-5"
+          style={{ borderTop: '1px solid #e6e2e3', color: '#9491a1' }}
         >
           <span>© 2026 Offered, Inc.</span>
           <span>Built by people who've conducted the loop.</span>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   );
 }

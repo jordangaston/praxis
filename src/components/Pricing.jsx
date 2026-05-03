@@ -1,81 +1,57 @@
-const FEATURES = [
-  'Unlimited mock interviews',
-  'Real FAANG rubrics',
-  'All interview types',
-  'Structured feedback',
-  'Progress tracking',
-];
+const FEATURES = ['Unlimited mock interviews', 'Real FAANG rubrics', 'All interview types', 'Structured feedback', 'Progress tracking'];
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="max-w-[1280px] mx-auto px-14" style={{ padding: '140px 56px' }}>
-      <div className="eyebrow mb-6">★ Pricing</div>
-      <div className="grid items-center gap-14" style={{ gridTemplateColumns: '1fr 1fr' }}>
-        <h2
-          className="font-medium m-0"
-          style={{ fontSize: 80, lineHeight: 0.98, letterSpacing: -2.4, textWrap: 'balance', color: '#1C0F42' }}
-        >
-          One human session.<br />
-          <span className="serif-it grad-text">Or unlimited AI ones.</span>
-        </h2>
+    <div style={{ padding: '8px 20px' }} id="pricing">
+      <section className="section-card" style={{ padding: '80px 72px' }}>
+        <div className="eyebrow mb-5">★ Pricing</div>
+        <div className="grid items-center gap-16" style={{ gridTemplateColumns: '1fr 1fr' }}>
+          <h2
+            className="font-display font-medium m-0"
+            style={{ fontSize: 'clamp(40px,5vw,68px)', lineHeight: 1.05, letterSpacing: '-0.035em', color: '#26114a', textWrap: 'balance' }}
+          >
+            One human session.<br />
+            <span className="serif-it grad-text">Or unlimited AI ones.</span>
+          </h2>
 
-        <div
-          className="rounded-[20px] p-11 relative"
-          style={{
-            background: 'rgba(255,255,255,0.72)',
-            border: '1px solid rgba(126,67,255,0.18)',
-            backdropFilter: 'blur(16px)',
-            boxShadow: '0 12px 60px rgba(126,67,255,0.18)',
-          }}
-        >
+          {/* Pricing card */}
           <div
-            className="absolute rounded-full font-mono text-[11.5px] font-bold tracking-[0.6px] px-4 py-[7px] text-white"
-            style={{
-              top: -14, right: 28,
-              background: 'linear-gradient(118deg,#7E43FF,#FF66C1)',
-              boxShadow: '0 2px 12px rgba(126,67,255,0.40)',
-            }}
+            className="card rounded-[20px] p-10 relative"
+            style={{ boxShadow: '0 4px 32px rgba(126,67,255,0.12), 0 0 0 1px rgba(0,0,0,0.06)' }}
           >
-            FIRST MOCK FREE
+            <div
+              className="absolute rounded-full font-mono text-[11px] font-bold tracking-[0.6px] px-4 py-1.5 text-white"
+              style={{ top: -14, right: 24, background: '#7e43ff', boxShadow: '0 2px 10px rgba(126,67,255,0.40)' }}
+            >
+              FIRST MOCK FREE
+            </div>
+
+            <div className="font-mono font-semibold text-[11px] tracking-[1.2px] mb-3 grad-text">OFFERED UNLIMITED</div>
+
+            <div className="flex items-baseline gap-2 mb-1">
+              <span className="font-display font-medium" style={{ fontSize: 88, lineHeight: 1, letterSpacing: '-0.04em', color: '#26114a' }}>$49</span>
+              <span className="text-[16px]" style={{ color: '#9491a1' }}>/mo</span>
+            </div>
+            <div className="text-[13px] mb-8" style={{ color: '#9491a1' }}>vs. $200–400 per human peer mock</div>
+
+            <ul className="list-none p-0 m-0 mb-8 flex flex-col gap-3 text-[15px]">
+              {FEATURES.map(f => (
+                <li key={f} className="flex items-center gap-3" style={{ color: '#26114a' }}>
+                  <span className="w-5 h-5 rounded-full grid place-items-center text-[11px] font-bold flex-shrink-0 text-white" style={{ background: '#7e43ff' }}>✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+
+            <button
+              className="btn-primary w-full justify-center"
+              style={{ width: '100%', fontSize: 15, padding: '14px 24px', borderRadius: 10 }}
+            >
+              Start free mock →
+            </button>
           </div>
-
-          <div className="font-mono text-[11.5px] font-semibold tracking-[1.2px] mb-3.5 grad-text">
-            OFFERED UNLIMITED
-          </div>
-
-          <div className="flex items-baseline gap-2 mb-1.5">
-            <span className="font-medium" style={{ fontSize: 100, lineHeight: 1, letterSpacing: -3.5, color: '#1C0F42' }}>$49</span>
-            <span className="text-[17px]" style={{ color: 'rgba(28,15,66,0.50)' }}>/mo</span>
-          </div>
-
-          <div className="text-[13.5px] mb-7" style={{ color: 'rgba(28,15,66,0.40)' }}>vs. $200–400 per human peer mock</div>
-
-          <ul className="list-none p-0 m-0 mb-7 flex flex-col gap-3 text-[15px]">
-            {FEATURES.map(f => (
-              <li key={f} className="flex items-center gap-3" style={{ color: '#1C0F42' }}>
-                <span
-                  className="w-[22px] h-[22px] rounded-full grid place-items-center text-[12px] font-bold flex-shrink-0 text-white"
-                  style={{ background: 'linear-gradient(135deg,#7E43FF,#FF66C1)' }}
-                >
-                  ✓
-                </span>
-                {f}
-              </li>
-            ))}
-          </ul>
-
-          <button
-            className="block w-full text-center rounded-full py-4 px-7 font-semibold text-[15px] text-white transition-all duration-150 hover:opacity-90 hover:-translate-y-px"
-            style={{
-              background: 'linear-gradient(118deg, #6B2FEF 0%, #A93AFF 50%, #FF55B8 100%)',
-              border: 'none',
-              boxShadow: '0 4px 24px rgba(126,67,255,0.40)',
-            }}
-          >
-            Start free mock →
-          </button>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

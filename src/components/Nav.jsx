@@ -1,46 +1,46 @@
 export default function Nav() {
   return (
-    <nav
-      className="absolute top-0 left-0 right-0 z-10 py-5"
-      style={{ borderBottom: '1px solid rgba(126,67,255,0.10)' }}
-    >
-      <div className="max-w-[1280px] mx-auto px-14 flex items-center justify-between">
+    <nav className="absolute top-0 left-0 right-0 z-10" style={{ padding: '20px 0' }}>
+      <div
+        className="max-w-[1200px] mx-auto flex items-center justify-between"
+        style={{ padding: '0 28px' }}
+      >
+        {/* Logo */}
         <div className="flex items-center gap-2.5">
           <div
-            className="w-[22px] h-[22px] rounded-[6px] relative"
-            style={{ background: 'linear-gradient(135deg, #7E43FF, #FF66C1)' }}
+            className="w-6 h-6 rounded-[6px] relative flex-shrink-0"
+            style={{ background: 'linear-gradient(135deg, #7e43ff, #ff66c1)' }}
           >
-            <div
-              className="absolute rounded-[3px]"
-              style={{ inset: 5, background: '#FAFAFF' }}
-            />
+            <div className="absolute rounded-[3px]" style={{ inset: 5, background: '#efefff' }} />
           </div>
-          <span className="font-semibold text-[17px] tracking-[-0.3px]" style={{ color: '#1C0F42' }}>Offered.</span>
+          <span
+            className="font-display font-semibold text-[17px] tracking-[-0.3px]"
+            style={{ color: '#26114a' }}
+          >
+            Offered.
+          </span>
         </div>
 
-        <div className="flex gap-9 text-[14px]" style={{ color: 'rgba(28,15,66,0.58)' }}>
-          <a href="#how-it-works" className="hover:text-[#1C0F42] transition-colors duration-150">How it works</a>
-          <a href="#interview-types" className="hover:text-[#1C0F42] transition-colors duration-150">Interview types</a>
-          <a href="#pricing" className="hover:text-[#1C0F42] transition-colors duration-150">Pricing</a>
+        {/* Links */}
+        <div
+          className="flex gap-8 text-[14px] font-medium"
+          style={{ color: '#26114a', fontFamily: 'var(--font-display)' }}
+        >
+          <a href="#how-it-works" className="opacity-70 hover:opacity-100 transition-opacity">How it works</a>
+          <a href="#interview-types" className="opacity-70 hover:opacity-100 transition-opacity">Interview types</a>
+          <a href="#pricing" className="opacity-70 hover:opacity-100 transition-opacity">Pricing</a>
         </div>
 
-        <div className="flex items-center gap-4">
+        {/* Right */}
+        <div className="flex items-center gap-3">
           <a
             href="#"
-            className="text-[14px] transition-colors duration-150 hover:text-[#1C0F42]"
-            style={{ color: 'rgba(28,15,66,0.58)' }}
+            className="text-[14px] font-medium opacity-60 hover:opacity-100 transition-opacity"
+            style={{ color: '#26114a', fontFamily: 'var(--font-display)' }}
           >
             Sign in
           </a>
-          <button
-            className="rounded-full px-[18px] py-[10px] text-[13px] font-semibold tracking-[0.1px] transition-all duration-150 hover:opacity-90 hover:-translate-y-px"
-            style={{
-              background: 'linear-gradient(118deg, #6B2FEF 0%, #A93AFF 50%, #FF55B8 100%)',
-              color: '#fff',
-              border: 'none',
-              boxShadow: '0 2px 16px rgba(126,67,255,0.35)',
-            }}
-          >
+          <button className="btn-primary text-[14px]" style={{ padding: '10px 18px' }}>
             Free mock interview
           </button>
         </div>

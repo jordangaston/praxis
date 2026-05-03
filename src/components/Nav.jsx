@@ -1,7 +1,12 @@
+import { useState } from 'react';
+
 export default function Nav() {
+  const [bannerVisible, setBannerVisible] = useState(true);
+
   return (
     <>
       {/* Announcement bar */}
+      {bannerVisible && (
       <div
         style={{
           background: '#2d2de0',
@@ -10,6 +15,7 @@ export default function Nav() {
           alignItems: 'center',
           justifyContent: 'center',
           gap: 16,
+          position: 'relative',
         }}
       >
         <span
@@ -41,7 +47,27 @@ export default function Nav() {
         >
           START NOW
         </a>
+        <button
+          onClick={() => setBannerVisible(false)}
+          style={{
+            position: 'absolute',
+            right: 16,
+            top: '50%',
+            transform: 'translateY(-50%)',
+            background: 'none',
+            border: 'none',
+            color: 'rgba(255,255,255,0.70)',
+            fontSize: 18,
+            lineHeight: 1,
+            cursor: 'pointer',
+            padding: '4px 6px',
+          }}
+          aria-label="Close"
+        >
+          ×
+        </button>
       </div>
+      )}
 
       {/* Nav */}
       <nav

@@ -7,30 +7,46 @@ const FEATS = [
 
 export default function Features() {
   return (
-    <div style={{ padding: '8px 20px' }}>
-      <section className="section-card" style={{ padding: '80px 72px' }}>
-        <div className="eyebrow mb-5">★ What's inside</div>
+    <section style={{ background: '#ffffff', padding: '120px 0' }}>
+      <div className="max-w-[1200px] mx-auto" style={{ padding: '0 28px' }}>
+        <div className="eyebrow mb-5">★ WHAT'S INSIDE</div>
         <h2
-          className="font-display font-medium m-0 mb-14"
-          style={{ fontSize: 'clamp(40px,5vw,68px)', lineHeight: 1.05, letterSpacing: '-0.035em', color: '#26114a', textWrap: 'balance' }}
+          className="font-display font-bold m-0 mb-12"
+          style={{
+            fontSize: 'clamp(40px, 5vw, 68px)',
+            lineHeight: 1.05,
+            letterSpacing: '-0.035em',
+            color: '#0a0a0a',
+            textWrap: 'balance',
+          }}
         >
-          Built like the{' '}
-          <span className="serif-it grad-text">real loop.</span>
+          Built like the real loop.
         </h2>
 
         <div className="grid gap-4" style={{ gridTemplateColumns: 'repeat(2,1fr)' }}>
           {FEATS.map((f, i) => (
             <div
               key={i}
-              className="card rounded-[16px] p-9"
+              className="rounded-[16px] p-9"
+              style={{ background: '#ffffff', border: '1px solid #e5e7eb' }}
             >
-              <div className="font-mono font-semibold text-[20px] mb-4 grad-text" style={{ letterSpacing: '0.02em' }}>0{i + 1}</div>
-              <h3 className="font-display font-semibold m-0 mb-3" style={{ fontSize: 22, letterSpacing: '-0.02em', color: '#26114a' }}>{f.h}</h3>
-              <p className="text-[15px] leading-[1.6] m-0" style={{ color: '#615e6e' }}>{f.d}</p>
+              <div
+                className="font-mono font-semibold text-[20px] mb-4"
+                style={{ color: '#2d2de0' }}
+              >
+                0{i + 1}
+              </div>
+              <h3
+                className="font-display font-semibold m-0 mb-3"
+                style={{ fontSize: 22, letterSpacing: '-0.02em', color: '#0a0a0a' }}
+              >
+                {f.h}
+              </h3>
+              <p className="text-[15px] leading-[1.6] m-0" style={{ color: '#4b5563' }}>{f.d}</p>
             </div>
           ))}
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

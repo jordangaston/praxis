@@ -1,52 +1,54 @@
 export default function FinalCTA() {
   return (
-    <div style={{ padding: '8px 20px' }}>
-      {/* Dark/purple CTA section — like Wiza's deep CTA block */}
-      <section
-        className="relative overflow-hidden text-center"
-        style={{
-          borderRadius: '3.5rem',
-          padding: '100px 72px',
-          background: 'linear-gradient(145deg, #2a0365 0%, #3e0079 40%, #26114a 100%)',
-          boxShadow: '0 8px 48px rgba(42,3,101,0.30)',
-        }}
-      >
-        {/* Ambient glow inside */}
+    <section style={{ background: '#ffffff', padding: '100px 0' }}>
+      <div className="max-w-[1200px] mx-auto" style={{ padding: '0 28px' }}>
         <div
-          className="absolute rounded-full pointer-events-none"
+          className="rounded-2xl flex items-center justify-between gap-12"
           style={{
-            left: '50%', top: '50%', transform: 'translate(-50%,-50%)',
-            width: 800, height: 500,
-            background: 'radial-gradient(ellipse, rgba(126,67,255,0.40) 0%, rgba(255,102,193,0.15) 45%, transparent 70%)',
-            filter: 'blur(40px)',
+            background: '#f9fafb',
+            border: '1px solid #e5e7eb',
+            padding: '64px 72px',
           }}
-        />
+        >
+          {/* Left */}
+          <div style={{ maxWidth: 540 }}>
+            <h2
+              className="font-display font-bold m-0"
+              style={{
+                fontSize: 'clamp(36px, 4.5vw, 56px)',
+                lineHeight: 1.05,
+                letterSpacing: '-0.035em',
+                color: '#0a0a0a',
+              }}
+            >
+              Secure your offer. Start practicing today.
+            </h2>
+          </div>
 
-        <div className="relative" style={{ zIndex: 1 }}>
-          <h2
-            className="font-display font-medium m-0 mb-6 text-white"
-            style={{ fontSize: 'clamp(52px,7vw,120px)', lineHeight: 0.95, letterSpacing: '-0.04em', textWrap: 'balance' }}
-          >
-            Nail the loop.<br />
-            <span className="serif-it" style={{ color: '#c4aaff' }}>Open the offer.</span>
-          </h2>
-          <p className="text-[18px] mx-auto mb-10" style={{ maxWidth: 520, lineHeight: 1.55, color: 'rgba(255,255,255,0.65)' }}>
-            Run the hardest hiring gauntlet in the industry. Pass it. Your first mock is free.
-          </p>
-          <button
-            className="rounded-[8px] font-display font-semibold text-[15px] transition-all duration-150 hover:opacity-90 hover:-translate-y-px"
-            style={{
-              background: '#fff',
-              color: '#26114a',
-              border: 'none',
-              padding: '14px 28px',
-              boxShadow: '0 2px 16px rgba(255,255,255,0.20)',
-            }}
-          >
-            Start free mock interview →
-          </button>
+          {/* Right */}
+          <div className="flex flex-col items-start gap-5 flex-shrink-0">
+            <p
+              className="font-mono m-0"
+              style={{
+                fontSize: 11,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#9ca3af',
+                maxWidth: 220,
+                lineHeight: 1.7,
+              }}
+            >
+              First mock free — no credit card required. Cancel anytime.
+            </p>
+            <button
+              className="btn-primary"
+              style={{ fontSize: 13, padding: '12px 24px', letterSpacing: '0.06em', textTransform: 'uppercase' }}
+            >
+              BOOK A DEMO
+            </button>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 }

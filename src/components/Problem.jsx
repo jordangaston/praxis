@@ -1,7 +1,7 @@
 const STATS = [
-  { n: '1yr',   t: "You're locked out for a year",   d: 'Every failed loop. One year. Your peers move on without you.' },
-  { n: '$200k', t: 'is what that year costs',        d: 'In FAANG comp. Per failed loop. The math is brutal and unforgiving.' },
-  { n: '∞',     t: "studying won't fix it",          d: 'Live performance is a different muscle. It only yields to live practice.' },
+  { n: '—', t: "This is by design", d: "Interviewers apply pressure to evaluate your ability to perform under stress." },
+  { n: '—', t: "Stress affects performance", d: "You second-guess yourself. You rush. You forget to clarify requirements. It happens to everyone who hasn't practiced." },
+  { n: '—', t: "Performance requires practice", d: "Not more studying. Not more leetcode. You have to do the real thing, repeatedly, until it feels normal." },
 ];
 
 export default function Problem() {
@@ -22,7 +22,7 @@ export default function Problem() {
             maxWidth: 720,
           }}
         >
-          Loop day tests pressure tolerance as much as it tests skill.
+          Real interviews are stressful
         </h2>
 
         {/* Stat grid — clean text on white, dividers between columns */}

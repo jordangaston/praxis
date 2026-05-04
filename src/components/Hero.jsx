@@ -28,24 +28,59 @@ export default function Hero() {
             fontFamily: '"DM Sans", Arial, sans-serif',
           }}
         >
-          Nail the loop before you live it.
+          Nail your next system design interview.
         </h1>
 
-        {/* Subheading */}
-        <p
+        {/* Bullet points */}
+        <ul
           style={{
-            fontSize: 18,
-            marginTop: 24,
-            marginBottom: 0,
-            maxWidth: 480,
-            lineHeight: 1.6,
-            color: '#6f7790',
-            fontFamily: '"DM Sans", Arial, sans-serif',
-            fontWeight: 400,
+            listStyle: 'none',
+            padding: 0,
+            margin: '24px 0 0',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 10,
+            textAlign: 'left',
           }}
         >
-          You fail FAANG interviews not because you can't do the job — but because you've never said it out loud under real pressure. Run the loop fifty times in here first.
-        </p>
+          {[
+            'Unlimited mock interviews for $49/month.',
+            'Customized for your target companies.',
+            'Your first mock is free.',
+          ].map(item => (
+            <li
+              key={item}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 10,
+                fontSize: 16,
+                color: '#6f7790',
+                fontFamily: '"DM Sans", Arial, sans-serif',
+                fontWeight: 400,
+              }}
+            >
+              <span
+                style={{
+                  width: 18,
+                  height: 18,
+                  borderRadius: '50%',
+                  background: '#183fd9',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: 10,
+                  fontWeight: 500,
+                  color: '#ffffff',
+                  flexShrink: 0,
+                }}
+              >
+                ✓
+              </span>
+              {item}
+            </li>
+          ))}
+        </ul>
 
         {/* CTAs */}
         <div style={{ display: 'flex', gap: 12, marginTop: 40, justifyContent: 'center', flexWrap: 'wrap' }}>

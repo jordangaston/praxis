@@ -9,95 +9,82 @@ export default function Hero() {
           maxWidth: 1200,
           margin: '0 auto',
           padding: '140px 28px 80px',
-          textAlign: 'center',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
+          textAlign: 'center',
         }}
       >
-        {/* H1 */}
-        <h1
-          style={{
-            fontSize: 64,
-            lineHeight: 1.03,
-            letterSpacing: '-0.02em',
-            fontWeight: 500,
-            maxWidth: 800,
-            color: '#000000',
-            margin: 0,
-            fontFamily: '"DM Sans", Arial, sans-serif',
-          }}
-        >
-          Nail your next system design interview.
-        </h1>
-
-        {/* Bullet points */}
-        <ul
-          style={{
-            listStyle: 'none',
-            padding: 0,
-            margin: '24px 0 0',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 10,
-            textAlign: 'left',
-          }}
-        >
-          {[
-            'Unlimited mock interviews for $49/month.',
-            'Customized for your target companies.',
-            'Your first mock is free.',
-          ].map(item => (
-            <li
-              key={item}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 10,
-                fontSize: 16,
-                color: '#6f7790',
-                fontFamily: '"DM Sans", Arial, sans-serif',
-                fontWeight: 400,
-              }}
-            >
-              <span
-                style={{
-                  width: 18,
-                  height: 18,
-                  borderRadius: '50%',
-                  background: '#183fd9',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: 10,
-                  fontWeight: 500,
-                  color: '#ffffff',
-                  flexShrink: 0,
-                }}
-              >
-                ✓
-              </span>
-              {item}
-            </li>
-          ))}
-        </ul>
-
-        {/* CTAs */}
-        <div style={{ display: 'flex', gap: 12, marginTop: 40, justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button className="btn-primary">
-            Start free mock interview →
-          </button>
-          <button className="btn-secondary">
-            See a session
-          </button>
-        </div>
-
-        {/* Social proof */}
-        <div style={{ marginTop: 32, textAlign: 'center' }}>
-          <span style={{ fontSize: 14, color: '#6f7790', fontFamily: '"DM Sans", Arial, sans-serif' }}>
-            2,400+ engineers running loops right now.
+        {/* Left: text content */}
+        <div style={{ flex: '1 1 0', minWidth: 0 }}>
+          {/* Eyebrow */}
+          <span
+            style={{
+              display: 'inline-block',
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              color: '#183fd9',
+              background: 'transparent',
+              border: '1px solid #183fd9',
+              borderRadius: 4,
+              padding: '4px 10px',
+              fontFamily: '"DM Sans", Arial, sans-serif',
+              marginBottom: 20,
+            }}
+          >
+            The 7 day system design challenge
           </span>
+
+          {/* H1 */}
+          <h1
+            style={{
+              fontSize: 64,
+              lineHeight: 1.03,
+              letterSpacing: '-0.02em',
+              fontWeight: 500,
+              color: '#000000',
+              margin: 0,
+              fontFamily: '"DM Sans", Arial, sans-serif',
+            }}
+          >
+            Master system design in <span style={{ color: '#183fd9', textDecoration: 'underline' }}>7 days</span> or get your money back
+          </h1>
+
+          {/* Subheader */}
+          <p
+            style={{
+              fontSize: 20,
+              lineHeight: 1.5,
+              color: '#6f7790',
+              fontFamily: '"DM Sans", Arial, sans-serif',
+              fontWeight: 400,
+              maxWidth: 600,
+              margin: '24px auto 0',
+            }}
+          >
+            Unlimited mock interviews on 100+ real FAANG system design questions. Pass our practice test in 7 days, or get a full refund.
+          </p>
+
+          {/* CTAs */}
+          <div style={{ display: 'flex', gap: 12, marginTop: 40, flexWrap: 'wrap', justifyContent: 'center' }}>
+            <button className="btn-primary">
+              START THE CHALLENGE
+            </button>
+            <button className="btn-secondary">
+              See a session
+            </button>
+          </div>
+
+          {/* Social proof */}
+          <div style={{ marginTop: 32 }}>
+            <span style={{ fontSize: 14, color: '#6f7790', fontFamily: '"DM Sans", Arial, sans-serif' }}>
+              Plans starting at $99/yr
+            </span>
+          </div>
         </div>
+
       </div>
 
       {/* Logo strip */}

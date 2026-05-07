@@ -152,7 +152,7 @@ export default function Plan() {
             textAlign: 'center',
           }}
         >
-          Three steps. One offer.
+          Three steps.
         </h2>
 
         <div

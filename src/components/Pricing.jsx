@@ -129,7 +129,7 @@ export default function Pricing() {
             className="btn-primary"
             style={{ width: '100%', justifyContent: 'center' }}
           >
-            Start free mock →
+            START THE CHALLENGE
           </button>
         </div>
       </div>

@@ -26,7 +26,7 @@ export default function FinalCTA() {
                 fontFamily: '"DM Sans", Arial, sans-serif',
               }}
             >
-              Nail the loop. Open the offer.
+              Nail the interview. Get the offer.
             </h2>
           </div>
 
@@ -48,7 +48,7 @@ export default function FinalCTA() {
               First mock free — no credit card required. Cancel anytime.
             </p>
             <button className="btn-primary">
-              BOOK A DEMO
+              START THE CHALLENGE
             </button>
           </div>
         </div>

@@ -2,10 +2,10 @@ import useInView from '../hooks/useInView';
 import { BRAND_NAME } from '../config';
 
 const FEATURES = [
+  'Personalized 30-day roadmap',
   'Unlimited mock interviews',
   'Company interview guides',
-  'Role-specific feedback',
-  'Customized 30-day roadmap',
+  'Role-specific feedback'
 ];
 
 export default function Pricing() {

@@ -14,17 +14,17 @@ export default function Footer() {
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Offered logo" role="img">
                 <defs>
                   <linearGradient id="footer-logo-grad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#234ee4"/>
-                    <stop offset="100%" stopColor="#0f2cb9"/>
+                    <stop offset="0%" stopColor="#234ee4" />
+                    <stop offset="100%" stopColor="#0f2cb9" />
                   </linearGradient>
                 </defs>
-                <circle cx="14" cy="14" r="13.5" fill="url(#footer-logo-grad)" stroke="var(--color-brand-stroke)" strokeWidth="1"/>
-                <polyline points="8,14.5 12,18.5 20,10" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="14" cy="14" r="13.5" fill="url(#footer-logo-grad)" stroke="var(--color-brand-stroke)" strokeWidth="1" />
+                <polyline points="8,14.5 12,18.5 20,10" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
               <span className="footer-brand-name">{BRAND_NAME}</span>
             </div>
             <p className="footer-desc">
-              AI mock interviews built on real FAANG rubrics, by engineers who've run 100+ loops at Amazon, Meta, Apple, Microsoft, and Roblox.
+              AI mock interviews built on real FAANG rubrics, by engineers who've run 100+ loops at Amazon, PayPal, Microsoft, Flexport, and Roblox.
             </p>
           </div>
 

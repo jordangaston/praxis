@@ -49,7 +49,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-subheadline hero-animate hero-animate-3">
-            Unlimited sessions on 100+ real FAANG questions. Pass our challenge in 30 days or get a full refund.
+            Unlimited mock interviews on 100+ real FAANG questions. Pass our challenge in 30 days or get a full refund.
           </p>
 
           <div className="hero-cta hero-animate hero-animate-4">

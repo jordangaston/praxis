@@ -1,3 +1,5 @@
+import { BRAND_NAME } from '../config';
+
 const COLUMNS = [
   { heading: 'Product', links: ['How it works', 'Pricing', 'Demo'] },
 ];
@@ -19,7 +21,7 @@ export default function Footer() {
                 <circle cx="14" cy="14" r="13.5" fill="url(#footer-logo-grad)" stroke="var(--color-brand-stroke)" strokeWidth="1"/>
                 <polyline points="8,14.5 12,18.5 20,10" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span className="footer-brand-name">Offered</span>
+              <span className="footer-brand-name">{BRAND_NAME}</span>
             </div>
             <p className="footer-desc">
               AI mock interviews built on real FAANG rubrics, by engineers who've run 100+ loops at Amazon, Meta, Apple, Microsoft, and Roblox.
@@ -41,7 +43,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>© 2026 Offered, Inc.</span>
+          <span>© 2026 {BRAND_NAME}, Inc.</span>
           <span>Built by people who've conducted the loop.</span>
         </div>
       </div>

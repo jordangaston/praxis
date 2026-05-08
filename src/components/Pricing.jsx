@@ -1,4 +1,5 @@
 import useInView from '../hooks/useInView';
+import { BRAND_NAME } from '../config';
 
 const FEATURES = [
   'Unlimited mock interviews',
@@ -27,7 +28,7 @@ export default function Pricing() {
           </div>
 
           <div className="eyebrow" style={{ marginBottom: 'var(--space-2)' }}>
-            Offered Unlimited
+            {BRAND_NAME} Unlimited
           </div>
 
           <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-1)', marginBottom: 4, justifyContent: 'center' }}>

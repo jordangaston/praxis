@@ -1,3 +1,5 @@
+import { BRAND_NAME } from '../config';
+
 export default function Nav() {
   return (
     <div className="nav-wrapper">
@@ -13,7 +15,7 @@ export default function Nav() {
             <circle cx="14" cy="14" r="13.5" fill="url(#logo-grad)" stroke="var(--color-brand-stroke)" strokeWidth="1"/>
             <polyline points="8,14.5 12,18.5 20,10" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-          Offered
+          {BRAND_NAME}
         </a>
 
         {[

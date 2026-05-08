@@ -16,6 +16,7 @@
   --color-surface-alt:  #f4f5f9;   /* depth layer */
   --color-surface-dim:  #edf0f8;   /* fill */
   --color-white:        #ffffff;
+  --color-card-warm:    #e8e2d9;
 
   /* Spacing — 8pt scale (Ch4 §13) */
   --space-1: 8px;

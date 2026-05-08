@@ -3,246 +3,266 @@ import { gsap } from 'gsap';
 import useInView from '../hooks/useInView';
 import { BRAND_NAME } from '../config';
 
-function TradeoffWidget({ visible }) {
-  const [picked, setPicked] = useState(null);
-  const listRef = useRef(null);
+/* ── Card 1: AI interview chat ── */
+function ChatWidget({ visible }) {
+  const dotRefs = useRef([]);
+  const bubbleRef = useRef(null);
   const animated = useRef(false);
-  const opts = [
-    { id: 0, label: 'Sharded SQL', tag: 'Strong consistency' },
-    { id: 1, label: 'NoSQL + cache', tag: 'High throughput' },
-    { id: 2, label: 'Event-driven', tag: 'Eventual consistency' },
+
+  useEffect(() => {
+    if (!visible || animated.current) return;
+    animated.current = true;
+
+    gsap.from(bubbleRef.current, { y: 10, opacity: 0, duration: 0.5, ease: 'power2.out', delay: 0.1 });
+
+    // Pulse the typing dots
+    gsap.to(dotRefs.current, {
+      y: -4,
+      duration: 0.4,
+      ease: 'power1.inOut',
+      stagger: 0.12,
+      repeat: -1,
+      yoyo: true,
+    });
+  }, [visible]);
+
+  return (
+    <div style={{ marginTop: 'var(--space-4)', padding: '0 var(--space-1)' }}>
+      {/* AI message */}
+      <div ref={bubbleRef} style={{ display: 'flex', gap: 10, alignItems: 'flex-start', marginBottom: 16 }}>
+        <div style={{
+          width: 30, height: 30, borderRadius: '50%', flexShrink: 0,
+          background: 'linear-gradient(180deg, #234ee4 0%, #0f2cb9 100%)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}>
+          <svg width="14" height="14" viewBox="0 0 28 28" fill="none">
+            <polyline points="8,14.5 12,18.5 20,10" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
+        <div style={{
+          background: 'var(--color-white)',
+          border: '1px solid var(--color-border)',
+          borderRadius: '4px 14px 14px 14px',
+          padding: '10px 14px',
+          fontSize: 13,
+          color: 'var(--color-ink)',
+          lineHeight: 1.55,
+          boxShadow: '0 1px 4px rgba(15,17,26,0.06)',
+        }}>
+          Design a URL shortener for 1B requests/day. Walk me through your approach — start with the data model.
+        </div>
+      </div>
+
+      {/* User typing indicator */}
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <div style={{
+          background: 'var(--color-surface-dim)',
+          border: '1px solid var(--color-border)',
+          borderRadius: '14px 4px 14px 14px',
+          padding: '10px 16px',
+          display: 'flex',
+          alignItems: 'center',
+          gap: 5,
+        }}>
+          {[0,1,2].map(i => (
+            <span
+              key={i}
+              ref={el => { dotRefs.current[i] = el; }}
+              style={{ width: 7, height: 7, borderRadius: '50%', background: 'var(--color-ink-faint)', display: 'block' }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ── Card 2: Fanned question cards ── */
+const QUESTIONS = [
+  { q: 'Design a rate limiter', company: 'Google',  level: 'L5', color: '#4285f4' },
+  { q: 'Design Twitter\'s feed', company: 'Meta',    level: 'E5', color: '#1877f2' },
+  { q: 'Design a URL shortener', company: 'Amazon', level: 'SDE II', color: '#ff9900' },
+];
+
+function QuestionStackWidget({ visible }) {
+  const cardRefs = useRef([]);
+  const animated = useRef(false);
+
+  // Final resting rotations/positions for each card (fanned)
+  const fan = [
+    { rotate: -6, x: -18, y: 8 },
+    { rotate: 0,  x: 0,   y: 0 },
+    { rotate: 6,  x: 18,  y: 8 },
   ];
 
   useEffect(() => {
     if (!visible || animated.current) return;
     animated.current = true;
-    const btns = Array.from(listRef.current.children);
-    gsap.from(btns, { y: 14, opacity: 0, duration: 0.4, stagger: 0.09, ease: 'power2.out', delay: 0.15 });
+
+    cardRefs.current.forEach((card, i) => {
+      gsap.from(card, {
+        rotate: 0, x: 0, y: 20, opacity: 0,
+        duration: 0.6,
+        ease: 'back.out(1.4)',
+        delay: 0.1 + i * 0.08,
+      });
+    });
   }, [visible]);
 
-  function select(id) {
-    if (picked === id) return;
-    setPicked(id);
-    const btn = listRef.current.children[id];
-    gsap.fromTo(btn, { scale: 0.96 }, { scale: 1, duration: 0.55, ease: 'elastic.out(1, 0.45)' });
-  }
-
   return (
-    <div style={{ marginTop: 'var(--space-4)' }}>
-      <div style={{ fontSize: 12, fontFamily: 'monospace', color: 'var(--color-ink-faint)', marginBottom: 'var(--space-2)', textAlign: 'left' }}>
-        "Design a feed for 10M users."
-      </div>
-      <div ref={listRef} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
-        {opts.map(o => (
-          <button
-            key={o.id}
-            onClick={() => select(o.id)}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              background: picked === o.id ? '#f0f4ff' : 'var(--color-surface-alt)',
-              border: picked === o.id ? '1px solid var(--color-brand)' : '1px solid var(--color-border)',
-              borderRadius: 'var(--radius-sm)',
-              padding: '10px 14px',
-              cursor: 'pointer',
-              textAlign: 'left',
-              transition: 'background 200ms, border-color 200ms',
-            }}
-          >
-            <div>
-              <div style={{ fontSize: 'var(--text-sm)', fontWeight: 500, color: 'var(--color-ink)' }}>{o.label}</div>
-              <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)' }}>{o.tag}</div>
-            </div>
-            {picked === o.id && <ValidBadge />}
-          </button>
-        ))}
-      </div>
-      {picked !== null && <AllValidNote />}
+    <div style={{ marginTop: 'var(--space-4)', display: 'flex', justifyContent: 'center', alignItems: 'center', height: 140, position: 'relative' }}>
+      {QUESTIONS.map((q, i) => (
+        <div
+          key={i}
+          ref={el => { cardRefs.current[i] = el; }}
+          style={{
+            position: 'absolute',
+            width: 180,
+            background: 'var(--color-white)',
+            border: '1px solid var(--color-border)',
+            borderRadius: 12,
+            padding: '14px 16px',
+            boxShadow: '0 4px 16px rgba(15,17,26,0.1)',
+            transform: `rotate(${fan[i].rotate}deg) translate(${fan[i].x}px, ${fan[i].y}px)`,
+            zIndex: i === 1 ? 3 : i === 0 ? 2 : 1,
+          }}
+        >
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: 5,
+            fontSize: 10, fontWeight: 600, color: q.color,
+            background: q.color + '15',
+            borderRadius: 20, padding: '2px 8px',
+            marginBottom: 8,
+          }}>
+            <span>{q.company}</span>
+            <span style={{ opacity: 0.6 }}>·</span>
+            <span>{q.level}</span>
+          </div>
+          <div style={{ fontSize: 13, fontWeight: 500, color: 'var(--color-ink)', lineHeight: 1.4 }}>
+            {q.q}
+          </div>
+          {/* Skeleton lines */}
+          <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', gap: 5 }}>
+            {[80, 60, 70].map((w, j) => (
+              <div key={j} style={{ height: 5, width: `${w}%`, background: 'var(--color-border)', borderRadius: 99 }} />
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
 
-function ValidBadge() {
-  const ref = useRef(null);
-  useEffect(() => {
-    gsap.from(ref.current, { scale: 0.4, opacity: 0, duration: 0.4, ease: 'back.out(2)' });
-  }, []);
-  return (
-    <span ref={ref} style={{ fontSize: 'var(--text-xs)', color: '#16a34a', fontWeight: 600, whiteSpace: 'nowrap' }}>
-      ✓ Valid
-    </span>
-  );
-}
+/* ── Card 3: Goal/target selector ── */
+const COMPANIES = ['Meta', 'Google', 'Amazon', 'Apple', 'Microsoft'];
+const LEVELS    = ['L3', 'L4', 'L5', 'L6', 'L7'];
 
-function AllValidNote() {
-  const ref = useRef(null);
-  useEffect(() => {
-    gsap.from(ref.current, { y: 6, opacity: 0, duration: 0.35, ease: 'power2.out' });
-  }, []);
-  return (
-    <div ref={ref} style={{ marginTop: 10, fontSize: 'var(--text-xs)', color: '#16a34a', textAlign: 'center' }}>
-      All three are valid — interviewers want your reasoning, not a single answer.
-    </div>
-  );
-}
-
-function RepsWidget({ visible }) {
-  const [hovered, setHovered] = useState(null);
-  const sessions = [38, 44, 51, 49, 60, 68, 76, 89];
-  const barsRef = useRef([]);
+function GoalWidget({ visible }) {
+  const [company, setCompany] = useState('Meta');
+  const [level, setLevel]     = useState('L5');
+  const rowRefs = useRef([]);
   const animated = useRef(false);
 
   useEffect(() => {
     if (!visible || animated.current) return;
     animated.current = true;
-    const bars = barsRef.current.filter(Boolean);
-    gsap.from(bars, {
-      scaleY: 0,
-      transformOrigin: 'bottom center',
-      duration: 0.65,
-      stagger: 0.07,
-      ease: 'power3.out',
-      delay: 0.15,
+    gsap.from(rowRefs.current, { y: 10, opacity: 0, duration: 0.4, stagger: 0.08, ease: 'power2.out', delay: 0.1 });
+  }, [visible]);
+
+  const pill = (label, active, onClick) => (
+    <button
+      onClick={onClick}
+      style={{
+        padding: '4px 12px', borderRadius: 99, fontSize: 12, fontWeight: 500, cursor: 'pointer',
+        border: active ? '1px solid var(--color-brand)' : '1px solid var(--color-border)',
+        background: active ? 'linear-gradient(180deg,#234ee4 0%,#0f2cb9 100%)' : 'var(--color-surface)',
+        color: active ? 'white' : 'var(--color-ink-dim)',
+        transition: 'all 150ms',
+      }}
+    >{label}</button>
+  );
+
+  return (
+    <div style={{ marginTop: 'var(--space-4)', display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div ref={el => { rowRefs.current[0] = el; }}>
+        <div style={{ fontSize: 11, color: 'var(--color-ink-faint)', marginBottom: 8, fontWeight: 500, letterSpacing: '0.04em', textTransform: 'uppercase' }}>Target company</div>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+          {COMPANIES.map(c => pill(c, company === c, () => setCompany(c)))}
+        </div>
+      </div>
+      <div ref={el => { rowRefs.current[1] = el; }}>
+        <div style={{ fontSize: 11, color: 'var(--color-ink-faint)', marginBottom: 8, fontWeight: 500, letterSpacing: '0.04em', textTransform: 'uppercase' }}>Target level</div>
+        <div style={{ display: 'flex', gap: 6 }}>
+          {LEVELS.map(l => pill(l, level === l, () => setLevel(l)))}
+        </div>
+      </div>
+      <div ref={el => { rowRefs.current[2] = el; }}
+        style={{ background: '#eef1ff', border: '1px solid #c7d2fe', borderRadius: 10, padding: '10px 14px', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ width: 8, height: 8, borderRadius: '50%', background: 'var(--color-brand)', flexShrink: 0 }} />
+        <span style={{ fontSize: 13, color: 'var(--color-brand)', fontWeight: 500 }}>
+          Calibrated for {company} {level} system design
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/* ── Card 4: Rubric scorecard ── */
+const RUBRIC = [
+  { label: 'Architecture',   score: 87 },
+  { label: 'Communication',  score: 91 },
+  { label: 'Tradeoffs',      score: 84 },
+  { label: 'Scalability',    score: 89 },
+];
+
+function ScorecardWidget({ visible }) {
+  const barRefs = useRef([]);
+  const animated = useRef(false);
+
+  useEffect(() => {
+    if (!visible || animated.current) return;
+    animated.current = true;
+    barRefs.current.forEach((bar, i) => {
+      gsap.from(bar, { scaleX: 0, transformOrigin: 'left center', duration: 0.6, ease: 'power2.out', delay: 0.15 + i * 0.1 });
     });
   }, [visible]);
 
-  function onEnter(i) {
-    setHovered(i);
-    const bar = barsRef.current[i];
-    if (bar) gsap.to(bar, { scaleX: 1.08, duration: 0.2, ease: 'power1.out' });
-  }
-
-  function onLeave(i) {
-    setHovered(null);
-    const bar = barsRef.current[i];
-    if (bar) gsap.to(bar, { scaleX: 1, duration: 0.2, ease: 'power1.out' });
-  }
-
   return (
     <div style={{ marginTop: 'var(--space-4)' }}>
-      <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 80 }}>
-        {sessions.map((score, i) => (
-          <div
-            key={i}
-            style={{ flex: 1, position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', height: '100%', cursor: 'default' }}
-            onMouseEnter={() => onEnter(i)}
-            onMouseLeave={() => onLeave(i)}
-          >
-            {hovered === i && (
-              <div style={{ position: 'absolute', top: -24, fontSize: 10, fontFamily: 'var(--font-sans)', background: 'var(--color-ink)', color: 'var(--color-white)', borderRadius: 'var(--radius-xs)', padding: '2px 6px', whiteSpace: 'nowrap', zIndex: 1 }}>
-                {score}/100
-              </div>
-            )}
-            <div
-              ref={el => { barsRef.current[i] = el; }}
-              style={{
-                width: '100%',
-                height: `${score}%`,
-                background: i === sessions.length - 1
-                  ? 'linear-gradient(180deg, #234ee4 0%, #0f2cb9 100%)'
-                  : hovered === i
-                    ? 'linear-gradient(180deg, #234ee4 0%, #0f2cb9 100%)'
-                    : 'var(--color-surface-dim)',
-                borderRadius: '3px 3px 0 0',
-                transition: 'background 150ms',
-                transformOrigin: 'bottom center',
-              }}
-            />
+      {/* Header */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
+        <div>
+          <div style={{ fontSize: 11, color: 'var(--color-ink-faint)', marginBottom: 2 }}>Session 8 feedback</div>
+          <div style={{ fontSize: 'var(--text-lg)', fontWeight: 700, color: 'var(--color-ink)' }}>
+            89<span style={{ fontSize: 12, color: 'var(--color-ink-faint)', fontWeight: 400 }}>/100</span>
+          </div>
+        </div>
+        <div style={{ fontSize: 11, background: '#f0fdf4', color: '#16a34a', fontWeight: 600, border: '1px solid #bbf7d0', borderRadius: 20, padding: '3px 10px' }}>
+          ↑ Pass
+        </div>
+      </div>
+
+      {/* Score rows */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        {RUBRIC.map((r, i) => (
+          <div key={r.label}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4, fontSize: 12 }}>
+              <span style={{ color: 'var(--color-ink-dim)' }}>{r.label}</span>
+              <span style={{ color: 'var(--color-ink)', fontWeight: 600 }}>{r.score}</span>
+            </div>
+            <div style={{ height: 6, background: 'var(--color-border)', borderRadius: 99, overflow: 'hidden' }}>
+              <div
+                ref={el => { barRefs.current[i] = el; }}
+                style={{
+                  height: '100%',
+                  width: `${r.score}%`,
+                  background: 'linear-gradient(90deg, #234ee4 0%, #0f2cb9 100%)',
+                  borderRadius: 99,
+                }}
+              />
+            </div>
           </div>
         ))}
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)' }}>
-        <span>Session 1</span>
-        <span style={{ color: 'var(--color-brand)', fontWeight: 500 }}>Session 8 · 89/100</span>
-      </div>
-    </div>
-  );
-}
-
-function HumanCostWidget({ sessions, setSessions }) {
-  const costRef = useRef(null);
-  const prevVal = useRef(sessions * 150);
-
-  useEffect(() => {
-    const to = sessions * 150;
-    const obj = { val: prevVal.current };
-    gsap.to(obj, {
-      val: to,
-      duration: 0.45,
-      ease: 'power2.out',
-      onUpdate() {
-        if (costRef.current) costRef.current.textContent = '$' + Math.round(obj.val).toLocaleString();
-      },
-    });
-    prevVal.current = to;
-  }, [sessions]);
-
-  return (
-    <div style={{ marginTop: 'var(--space-4)' }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--space-2)', marginBottom: 14 }}>
-        <button
-          onClick={() => setSessions(s => Math.max(1, s - 1))}
-          style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid var(--color-border)', background: 'var(--color-surface)', fontSize: 18, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-        >−</button>
-        <span style={{ fontSize: 14, fontWeight: 500, minWidth: 80, textAlign: 'center', color: 'var(--color-ink)' }}>
-          {sessions} sessions
-        </span>
-        <button
-          onClick={() => setSessions(s => Math.min(20, s + 1))}
-          style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid var(--color-border)', background: 'var(--color-surface)', fontSize: 18, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
-        >+</button>
-      </div>
-      <div style={{ background: '#fff5f5', border: '1px solid #fecaca', borderRadius: 'var(--radius-sm)', padding: '14px 16px', textAlign: 'center' }}>
-        <div ref={costRef} style={{ fontSize: 'var(--text-2xl)', fontWeight: 600, color: '#dc2626', lineHeight: 1 }}>
-          ${(sessions * 150).toLocaleString()}
-        </div>
-        <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)', marginTop: 4 }}>
-          {sessions} × $150/hr with a human
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function AICostWidget({ sessions }) {
-  const costRef = useRef(null);
-  const savingsRef = useRef(null);
-  const prevSessions = useRef(sessions);
-
-  useEffect(() => {
-    const obj = {
-      cost: prevSessions.current * 0.28,
-      savings: (prevSessions.current * 150) - (prevSessions.current * 0.28),
-    };
-    gsap.to(obj, {
-      cost: sessions * 0.28,
-      savings: (sessions * 150) - (sessions * 0.28),
-      duration: 0.45,
-      ease: 'power2.out',
-      onUpdate() {
-        if (costRef.current) costRef.current.textContent = '$' + obj.cost.toFixed(2);
-        if (savingsRef.current) savingsRef.current.textContent = 'You save $' + obj.savings.toFixed(2);
-      },
-    });
-    prevSessions.current = sessions;
-  }, [sessions]);
-
-  return (
-    <div style={{ marginTop: 'var(--space-4)' }}>
-      <div style={{ textAlign: 'center', marginBottom: 14 }}>
-        <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)' }}>Same {sessions} sessions ↓</span>
-      </div>
-      <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 'var(--radius-sm)', padding: '14px 16px', textAlign: 'center' }}>
-        <div ref={costRef} style={{ fontSize: 'var(--text-2xl)', fontWeight: 600, color: '#16a34a', lineHeight: 1 }}>
-          ${(sessions * 0.28).toFixed(2)}
-        </div>
-        <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)', marginTop: 4 }}>
-          {sessions} × $0.28/hr with {BRAND_NAME}
-        </div>
-      </div>
-      <div ref={savingsRef} style={{ marginTop: 10, fontSize: 'var(--text-xs)', color: '#16a34a', textAlign: 'center', fontWeight: 500 }}>
-        You save ${((sessions * 150) - (sessions * 0.28)).toFixed(2)}
       </div>
     </div>
   );
@@ -253,34 +273,33 @@ const CARDS = [
     pre: `${BRAND_NAME}`,
     highlight: 'interviews',
     post: 'you',
-    body: "Only better and worse tradeoffs. You can't cram it. You have to rep it.",
-    Widget: ({ visible }) => <TradeoffWidget visible={visible} />,
+    body: "Voice-first AI that asks follow-up questions, pushes back on weak answers, and grades like a real panel.",
+    Widget: ({ visible }) => <ChatWidget visible={visible} />,
   },
   {
     pre: 'Get reps on',
     highlight: 'real',
     post: 'FAANG questions',
-    body: 'Nothing gets you comfortable with the format faster than arguing tradeoffs under pressure.',
-    Widget: ({ visible }) => <RepsWidget visible={visible} />,
+    body: 'Questions pulled from actual interview loops at Google, Meta, Amazon, Apple, and Microsoft.',
+    Widget: ({ visible }) => <QuestionStackWidget visible={visible} />,
   },
   {
     pre: `${BRAND_NAME} knows your`,
     highlight: 'goals',
     post: '',
-    body: 'They take days to schedule. Most engineers walk in with 1–2 reps.',
-    Widget: ({ sessions, setSessions }) => <HumanCostWidget sessions={sessions} setSessions={setSessions} />,
+    body: 'Set your target company and level. Every session is calibrated to that bar — not a generic standard.',
+    Widget: ({ visible }) => <GoalWidget visible={visible} />,
   },
   {
     pre: 'Walk in',
     highlight: 'confident',
     post: '',
-    body: '100x cheaper. Unlimited reps. The same pressure.',
-    Widget: ({ sessions }) => <AICostWidget sessions={sessions} />,
+    body: 'Every session ends with a rubric-based scorecard. You see exactly where you lost points.',
+    Widget: ({ visible }) => <ScorecardWidget visible={visible} />,
   },
 ];
 
 export default function Problem() {
-  const [sessions, setSessions] = useState(5);
   const [ref, visible] = useInView(0.1);
 
   return (
@@ -290,7 +309,7 @@ export default function Problem() {
           Offered simulates <span className="hl">real interviews.</span>
         </h2>
         <p className={`section-subheading anim-fade-up${visible ? ' is-visible' : ''}`} style={{ transitionDelay: visible ? '80ms' : '0ms' }}>
-          Offered uses our database of 100+ FAANG questions and advnaced AI to simulate real system design interviews.
+          Offered uses our database of 100+ FAANG questions and advanced AI to simulate real system design interviews.
         </p>
 
         <div className="problem-grid">
@@ -306,7 +325,7 @@ export default function Problem() {
                 {c.post && <> {c.post}</>}
               </h3>
               <p className="problem-card-body">{c.body}</p>
-              <c.Widget visible={visible} sessions={sessions} setSessions={setSessions} />
+              <c.Widget visible={visible} />
             </div>
           ))}
         </div>

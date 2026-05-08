@@ -131,7 +131,7 @@ details summary::-webkit-details-marker { display: none; }
 }
 
 .section-subheading {
-  font-size: var(--text-base);
+  font-size: var(--text-md);
   color: var(--color-ink-dim);
   text-align: center;
   max-width: 520px;

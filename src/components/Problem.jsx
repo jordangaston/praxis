@@ -8,9 +8,9 @@ function TradeoffWidget({ visible }) {
   const listRef = useRef(null);
   const animated = useRef(false);
   const opts = [
-    { id: 0, label: 'Sharded SQL',    tag: 'Strong consistency' },
-    { id: 1, label: 'NoSQL + cache',  tag: 'High throughput'    },
-    { id: 2, label: 'Event-driven',   tag: 'Eventual consistency' },
+    { id: 0, label: 'Sharded SQL', tag: 'Strong consistency' },
+    { id: 1, label: 'NoSQL + cache', tag: 'High throughput' },
+    { id: 2, label: 'Event-driven', tag: 'Eventual consistency' },
   ];
 
   useEffect(() => {
@@ -250,29 +250,29 @@ function AICostWidget({ sessions }) {
 
 const CARDS = [
   {
-    pre: 'System design has',
-    highlight: 'no right answer',
-    post: '',
+    pre: `${BRAND_NAME}`,
+    highlight: 'interviews',
+    post: 'you',
     body: "Only better and worse tradeoffs. You can't cram it. You have to rep it.",
     Widget: ({ visible }) => <TradeoffWidget visible={visible} />,
   },
   {
-    pre: 'Reps are the',
-    highlight: 'only way',
-    post: 'to improve',
+    pre: 'Get reps on',
+    highlight: 'real',
+    post: 'FAANG questions',
     body: 'Nothing gets you comfortable with the format faster than arguing tradeoffs under pressure.',
     Widget: ({ visible }) => <RepsWidget visible={visible} />,
   },
   {
-    pre: 'Human mocks cost',
-    highlight: '$100–200/hr',
+    pre: `${BRAND_NAME} knows your`,
+    highlight: 'goals',
     post: '',
     body: 'They take days to schedule. Most engineers walk in with 1–2 reps.',
     Widget: ({ sessions, setSessions }) => <HumanCostWidget sessions={sessions} setSessions={setSessions} />,
   },
   {
-    pre: 'AI mocks cost',
-    highlight: '$0.28/hr',
+    pre: 'Walk in',
+    highlight: 'confident',
     post: '',
     body: '100x cheaper. Unlimited reps. The same pressure.',
     Widget: ({ sessions }) => <AICostWidget sessions={sessions} />,
@@ -290,7 +290,7 @@ export default function Problem() {
           Offered simulates <span className="hl">real interviews.</span>
         </h2>
         <p className={`section-subheading anim-fade-up${visible ? ' is-visible' : ''}`} style={{ transitionDelay: visible ? '80ms' : '0ms' }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Offered uses our database of 100+ FAANG questions and advnaced AI to simulate real system design interviews.
         </p>
 
         <div className="problem-grid">

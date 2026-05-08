@@ -38,27 +38,27 @@ export default function Hero() {
     <section className="hero-section">
       <div className="hero-body">
         <div className="container hero-content">
-          <span className="badge badge--outline" style={{ marginBottom: 'var(--space-4)' }}>
-            The 14 day system design challenge
+          <span className="badge badge--outline hero-animate hero-animate-1" style={{ marginBottom: 'var(--space-4)' }}>
+            The 30 day system design challenge
           </span>
 
-          <h1 className="hero-heading">
+          <h1 className="hero-heading hero-animate hero-animate-2">
             Master system design in{' '}
-            <span className="hl">14 days</span>{' '}
+            <span className="hl">30 days</span>{' '}
             or get your money back
           </h1>
 
-          <p className="hero-subheadline">
-            Unlimited mock interviews on 100+ real FAANG system design questions. Pass our practice test in 14 days, or get a full refund.
+          <p className="hero-subheadline hero-animate hero-animate-3">
+            Unlimited sessions on 100+ real FAANG questions. Pass our challenge in 30 days or get a full refund.
           </p>
 
-          <div className="hero-cta">
+          <div className="hero-cta hero-animate hero-animate-4">
             <button className="btn btn-primary btn-hero">
               Start the challenge
             </button>
           </div>
 
-          <div className="hero-logos">
+          <div className="hero-logos hero-animate hero-animate-5">
             <span className="hero-logos-label">Built by engineers from</span>
             {logos.map(({ name, svg }) => (
               <div key={name} title={name} style={{ display: 'flex', alignItems: 'center' }}>

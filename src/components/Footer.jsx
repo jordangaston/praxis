@@ -1,7 +1,5 @@
 const COLUMNS = [
-  { heading: 'Product', links: ['How it works', 'Interview types', 'Pricing', 'Demo'] },
-  { heading: 'Company', links: ['About', 'Team', 'Careers'] },
-  { heading: 'Legal',   links: ['Privacy', 'Terms'] },
+  { heading: 'Product', links: ['How it works', 'Pricing', 'Demo'] },
 ];
 
 export default function Footer() {
@@ -19,7 +17,7 @@ export default function Footer() {
               <span className="footer-brand-name">Offered.</span>
             </div>
             <p className="footer-desc">
-              Unlimited AI mock interviews built on real FAANG rubrics. From the team behind 100+ loops at Amazon, Meta, Apple, Microsoft, and Roblox.
+              AI mock interviews built on real FAANG rubrics, by engineers who've run 100+ loops at Amazon, Meta, Apple, Microsoft, and Roblox.
             </p>
           </div>
 

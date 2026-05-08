@@ -1,20 +1,27 @@
+import useInView from '../hooks/useInView';
+
 const FEATURES = [
   'Unlimited mock interviews',
   'Real FAANG rubrics',
-  'All interview types',
-  'Structured feedback',
+  'Every interview type',
+  'Rubric-based feedback',
   'Progress tracking',
 ];
 
 export default function Pricing() {
+  const [ref, visible] = useInView(0.1);
+
   return (
     <section id="pricing" className="section">
-      <div className="container" style={{ textAlign: 'center' }}>
-        <h2 className="section-heading">
+      <div ref={ref} className="container" style={{ textAlign: 'center' }}>
+        <h2 className={`section-heading anim-fade-up${visible ? ' is-visible' : ''}`}>
           One human session. Or unlimited AI ones.
         </h2>
 
-        <div className="card" style={{ maxWidth: 440, margin: '0 auto', textAlign: 'center' }}>
+        <div
+          className={`card anim-fade-up${visible ? ' is-visible' : ''}`}
+          style={{ maxWidth: 440, margin: '0 auto', textAlign: 'center', transitionDelay: visible ? '100ms' : '0ms' }}
+        >
           <div style={{ marginBottom: 'var(--space-2)' }}>
             <span className="badge badge--filled">First mock free</span>
           </div>

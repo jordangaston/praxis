@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import useInView from '../hooks/useInView';
 
 function TradeoffWidget() {
   const [picked, setPicked] = useState(null);
@@ -178,7 +179,7 @@ const CARDS = [
     pre: 'Human mocks cost',
     highlight: '$100–200/hr',
     post: '',
-    body: 'And take days to schedule. Most engineers walk in with 1–2 reps.',
+    body: 'They take days to schedule. Most engineers walk in with 1–2 reps.',
     Widget: ({ sessions, setSessions }) => <HumanCostWidget sessions={sessions} setSessions={setSessions} />,
   },
   {
@@ -192,17 +193,22 @@ const CARDS = [
 
 export default function Problem() {
   const [sessions, setSessions] = useState(5);
+  const [ref, visible] = useInView(0.1);
 
   return (
     <section className="section">
-      <div className="container">
-        <h2 className="section-heading">
+      <div ref={ref} className="container">
+        <h2 className={`section-heading anim-fade-up${visible ? ' is-visible' : ''}`}>
           Practice <span className="hl">system design</span> the way you're <span className="hl">interviewed</span>.
         </h2>
 
         <div className="problem-grid">
           {CARDS.map((c, i) => (
-            <div key={i} className="problem-card">
+            <div
+              key={i}
+              className={`problem-card anim-fade-up${visible ? ' is-visible' : ''}`}
+              style={{ transitionDelay: visible ? `${80 + i * 80}ms` : '0ms' }}
+            >
               <h3 className="problem-card-heading">
                 {c.pre && <>{c.pre} </>}
                 <span className="hl">{c.highlight}</span>

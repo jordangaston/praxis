@@ -1,9 +1,14 @@
+import useInView from '../hooks/useInView';
+
 export default function FinalCTA() {
+  const [ref, visible] = useInView(0.2);
+
   return (
     <section className="section">
       <div className="container">
         <div
-          className="card card--lg"
+          ref={ref}
+          className={`card card--lg anim-fade-up${visible ? ' is-visible' : ''}`}
           style={{
             display: 'flex',
             alignItems: 'center',

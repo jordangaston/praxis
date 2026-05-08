@@ -1,3 +1,5 @@
+import useInView from '../hooks/useInView';
+
 const FAQS = [
   {
     q: 'Is the first mock really free?',
@@ -13,21 +15,27 @@ const FAQS = [
   },
   {
     q: 'How is this different from peer mocks?',
-    a: "Peer mocks cost $200–400 and depend on the peer's calibration. We're unlimited, available at 2am the night before, graded against actual rubrics.",
+    a: "Peer mocks cost $200–400 and rely on the peer's calibration. Offered is available on demand, unlimited, and graded against actual rubrics.",
   },
 ];
 
 export default function FAQ() {
+  const [ref, visible] = useInView(0.1);
+
   return (
     <section className="section">
-      <div className="container">
-        <h2 className="section-heading">
+      <div ref={ref} className="container">
+        <h2 className={`section-heading anim-fade-up${visible ? ' is-visible' : ''}`}>
           <span className="hl">FAQ</span>
         </h2>
 
         <div style={{ maxWidth: 760, margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
           {FAQS.map((f, i) => (
-            <details key={i} className="faq-item">
+            <details
+              key={i}
+              className={`faq-item anim-fade-up${visible ? ' is-visible' : ''}`}
+              style={{ transitionDelay: visible ? `${i * 70}ms` : '0ms' }}
+            >
               <summary className="faq-summary">
                 {f.q}
                 <span className="faq-icon">+</span>

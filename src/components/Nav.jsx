@@ -28,7 +28,7 @@ export default function Nav() {
               textTransform: 'uppercase',
             }}
           >
-            FIRST MOCK FREE — NO CREDIT CARD REQUIRED
+            BE INTERVIEW READY IN 7 DAYS
           </span>
           <a
             href="#"

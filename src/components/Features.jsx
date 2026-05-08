@@ -1,7 +1,7 @@
 const FEATS = [
-  { h: 'Real FAANG rubrics',      d: 'Each session graded against the same rubrics a panel uses. No vibes. No "you got this."' },
-  { h: 'Whiteboard + voice',      d: 'System design with a real diagramming canvas. Behavioral with voice. Coding with a working IDE.' },
-  { h: 'Structured feedback',     d: 'After every session: where you nailed it, where you tanked, the exact drill that fixes the gap.' },
+  { h: 'Real FAANG rubrics', d: 'Each session is graded against the same rubrics a panel uses.' },
+  { h: 'Whiteboard + Voice', d: 'Design systems on a whiteboard and explain your thinking out loud.' },
+  { h: 'Structured feedback', d: 'After every session: where you nailed it, where you tanked, the exact drill that fixes the gap.' },
   { h: 'Calibrated to the level', d: "L3 talks like L3 evidence. L7 demands strategy. We don't grade everyone like a senior." },
 ];
 
@@ -20,7 +20,7 @@ export default function Features() {
             textAlign: 'center',
           }}
         >
-          Built like the real loop.
+          Designed to be realistic
         </h2>
 
         <div

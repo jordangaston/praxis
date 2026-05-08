@@ -132,9 +132,9 @@ function ReadyVisual() {
 }
 
 const STEPS = [
-  { n: '01', t: 'Set your target', d: 'Interview type, level, company. We calibrate to the rubric the panel will actually use.', Visual: TargetVisual },
-  { n: '02', t: 'Talk it through', d: "Live voice sessions with an AI interviewer. Structured feedback. The gaps you can't hear yourself.", Visual: LoopVisual },
-  { n: '03', t: 'Walk in ready', d: 'Dozens of sessions and pattern recognition behind you. Loop day feels like Tuesday.', Visual: ReadyVisual },
+  { n: '01', t: 'Plan', d: 'Pick your target company and level. We create a plan to get you the offer.', Visual: TargetVisual },
+  { n: '02', t: 'Practice', d: "Complete mock interviews and get structured feedback to close your gaps.", Visual: LoopVisual },
+  { n: '03', t: 'Perform', d: 'Go into your interview with real reps on common questions.', Visual: ReadyVisual },
 ];
 
 export default function Plan() {
@@ -152,7 +152,7 @@ export default function Plan() {
             textAlign: 'center',
           }}
         >
-          Three steps.
+          Three Simple Steps
         </h2>
 
         <div

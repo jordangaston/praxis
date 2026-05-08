@@ -29,7 +29,7 @@ export default function FinalCTA() {
             </h2>
           </div>
 
-          <div style={{ flex: '0 0 40%', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 'var(--space-3)' }}>
+          <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
             <p style={{
               fontSize: 'var(--text-xs)',
               letterSpacing: '0.06em',
@@ -40,7 +40,6 @@ export default function FinalCTA() {
               margin: 0,
               fontWeight: 500,
             }}>
-              First mock free — no credit card required. Cancel anytime.
             </p>
             <button className="btn btn-primary">
               Start the challenge

@@ -28,7 +28,7 @@ export default function Pricing() {
             borderRadius: 4,
             padding: 40,
             position: 'relative',
-            textAlign: 'left',
+            textAlign: 'center',
           }}
         >
           {/* FIRST MOCK FREE badge */}
@@ -65,7 +65,7 @@ export default function Pricing() {
             OFFERED UNLIMITED
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4 }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4, justifyContent: 'center' }}>
             <span
               style={{
                 fontSize: 72,
@@ -90,7 +90,7 @@ export default function Pricing() {
             vs. $200–400 per human peer mock
           </div>
 
-          <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 32px', display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 auto 32px', display: 'inline-flex', flexDirection: 'column', gap: 12, textAlign: 'left' }}>
             {FEATURES.map(f => (
               <li
                 key={f}

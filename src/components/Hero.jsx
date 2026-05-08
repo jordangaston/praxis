@@ -68,7 +68,7 @@ export default function Hero() {
               marginBottom: 20,
             }}
           >
-            The 7 day system design challenge
+            The 14 day system design challenge
           </span>
 
           {/* H1 */}
@@ -83,7 +83,7 @@ export default function Hero() {
               fontFamily: '"DM Sans", Arial, sans-serif',
             }}
           >
-            Master system design in <span style={{ color: '#183fd9', textDecoration: 'underline' }}>7 days</span> or get your money back
+            Master system design in <span style={{ color: '#183fd9', textDecoration: 'underline' }}>14 days</span> or get your money back
           </h1>
 
           {/* Subheader */}
@@ -98,7 +98,7 @@ export default function Hero() {
               margin: '24px auto 0',
             }}
           >
-            Unlimited mock interviews on 100+ real FAANG system design questions. Pass our practice test in 7 days, or get a full refund.
+            Unlimited mock interviews on 100+ real FAANG system design questions. Pass our practice test in 14 days, or get a full refund.
           </p>
 
           {/* CTA */}

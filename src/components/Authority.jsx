@@ -20,7 +20,7 @@ export default function Authority() {
             fontFamily: '"DM Sans", Arial, sans-serif',
           }}
         >
-          100+ FAANG loops. On both sides of the table.
+          FAANG loops. On both sides of the table.
         </h2>
 
         <p
@@ -147,7 +147,7 @@ export default function Authority() {
                 The Offered team
               </div>
               <div style={{ fontSize: 12.5, color: '#9ca3af', fontFamily: '"DM Sans", Arial, sans-serif' }}>
-                Staff & Senior eng · 100+ loops
+                Staff & Senior eng · FAANG loops
               </div>
             </div>
           </div>

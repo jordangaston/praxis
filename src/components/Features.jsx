@@ -1,8 +1,8 @@
 const FEATS = [
-  { h: 'Real FAANG rubrics', d: 'Each session is graded against the same rubrics a panel uses.' },
+  { h: 'Company specific', d: 'Each session is graded using criteria' },
   { h: 'Whiteboard + Voice', d: 'Design systems on a whiteboard and explain your thinking out loud.' },
-  { h: 'Structured feedback', d: 'After every session: where you nailed it, where you tanked, the exact drill that fixes the gap.' },
-  { h: 'Calibrated to the level', d: "L3 talks like L3 evidence. L7 demands strategy. We don't grade everyone like a senior." },
+  { h: 'Structured feedback', d: 'After every session we tell you where you nailed it, where you tanked, and how to fill your gaps.' },
+  { h: 'Calibrated to the role', d: "" },
 ];
 
 export default function Features() {

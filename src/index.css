@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ink:        #000000;
+  --color-ink:        #0f111a;
   --color-ink-dim:    #6f7790;
-  --color-ink-faint:  #9ca3af;
+  --color-ink-faint:  #8d93a8;
   --color-border:     #eeeef2;
   --color-accent:     #183fd9;
   --color-surface:    #ffffff;
-  --color-surface-alt:#f6f7f8;
+  --color-surface-alt:#f4f5f9;
+  --color-surface-dim:#edf0f8;
   --color-announce:   #2d2de0;
 
   --font-sans: "DM Sans", Arial, sans-serif;
@@ -63,11 +64,11 @@ details[open] .faq-plus { transform: rotate(45deg); }
   gap: 6px;
   position: relative;
   overflow: hidden;
-  background: #000000;
+  background: #183fd9;
   color: #ffffff;
-  border: 1px solid #000000;
-  border-radius: 4px;
-  padding: 14px 20px;
+  border: 1px solid #183fd9;
+  border-radius: 999px;
+  padding: 14px 24px;
   font-family: "DM Sans", Arial, sans-serif;
   font-size: 11px;
   font-weight: 500;
@@ -93,24 +94,18 @@ details[open] .faq-plus { transform: rotate(45deg); }
 .btn-primary-hero {
   font-size: 15px;
   letter-spacing: 0.04em;
-  padding: 14px 32px;
-  box-shadow:
-    0 5px 0 #1a1a1a,
-    0 8px 16px rgba(0,0,0,0.28);
-  transition: box-shadow 100ms ease, transform 100ms ease, opacity 150ms ease;
+  padding: 16px 36px;
+  box-shadow: 0 4px 14px rgba(24,63,217,0.40);
+  transition: box-shadow 150ms ease, transform 150ms ease, opacity 150ms ease;
 }
 .btn-primary-hero:hover {
   opacity: 1;
-  transform: translateY(2px);
-  box-shadow:
-    0 3px 0 #1a1a1a,
-    0 5px 10px rgba(0,0,0,0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(24,63,217,0.45);
 }
 .btn-primary-hero:active {
-  transform: translateY(5px);
-  box-shadow:
-    0 0px 0 #1a1a1a,
-    0 2px 6px rgba(0,0,0,0.2);
+  transform: translateY(1px);
+  box-shadow: 0 2px 8px rgba(24,63,217,0.30);
 }
 
 .btn-secondary {
@@ -120,8 +115,8 @@ details[open] .faq-plus { transform: rotate(45deg); }
   background: #eeeeef;
   color: #000000;
   border: 1px solid #e2e3e9;
-  border-radius: 4px;
-  padding: 14px 20px;
+  border-radius: 999px;
+  padding: 14px 24px;
   font-family: "DM Sans", Arial, sans-serif;
   font-size: 11px;
   font-weight: 500;

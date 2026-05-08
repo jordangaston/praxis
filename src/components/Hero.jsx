@@ -66,7 +66,7 @@ export default function Hero() {
               borderRadius: 4,
               padding: '4px 10px',
               fontFamily: '"DM Sans", Arial, sans-serif',
-              marginBottom: 20,
+              marginBottom: 32,
             }}
           >
             The 14 day system design challenge
@@ -84,7 +84,7 @@ export default function Hero() {
               fontFamily: '"DM Sans", Arial, sans-serif',
             }}
           >
-            Master system design in <span style={{ color: '#183fd9', textDecoration: 'underline' }}>14 days</span> or get your money back
+            Master system design in <span style={{ background: '#183fd9', color: '#ffffff', borderRadius: 6, padding: '1px 8px', display: 'inline' }}>14 days</span> or get your money back
           </h1>
 
           {/* Subheader */}

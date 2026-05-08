@@ -64,7 +64,7 @@ html, body { margin: 0; padding: 0; }
 #root { min-height: 100vh; }
 
 body {
-  background-color: var(--color-surface);
+  background: linear-gradient(135deg, var(--color-surface-dim) 0%, var(--color-surface) 55%) fixed;
   color: var(--color-ink);
   font-family: var(--font-sans);
   font-size: var(--text-base);
@@ -563,7 +563,7 @@ details[open] .faq-icon { transform: rotate(45deg); }
 
 .footer-brand-name {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--color-ink);
   letter-spacing: -0.3px;
 }

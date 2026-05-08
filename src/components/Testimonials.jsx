@@ -37,7 +37,7 @@ export default function Testimonials() {
     <section className="section">
       <div ref={ref} className="container">
         <h2 className={`section-heading anim-fade-up${inView ? ' is-visible' : ''}`}>
-          Stories from engineers who got the offer
+          Stories from engineers who <span className="hl">got the offer</span>
         </h2>
 
         <div style={{ position: 'relative' }}>

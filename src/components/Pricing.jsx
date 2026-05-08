@@ -16,7 +16,7 @@ export default function Pricing() {
     <section id="pricing" className="section">
       <div ref={ref} className="container" style={{ textAlign: 'center' }}>
         <h2 className={`section-heading anim-fade-up${visible ? ' is-visible' : ''}`}>
-          One human session. Or unlimited AI ones.
+          <span className="hl">Unlimited</span> mock interviews.
         </h2>
 
         <div

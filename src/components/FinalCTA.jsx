@@ -18,14 +18,14 @@ export default function FinalCTA() {
         >
           <div style={{ flex: '0 0 60%' }}>
             <h2 style={{
-              fontSize: 'var(--text-3xl)',
+              fontSize: 'var(--text-2xl)',
               lineHeight: 1.1,
               fontWeight: 500,
               color: 'var(--color-ink)',
               margin: 0,
               letterSpacing: '-0.02em',
             }}>
-              Nail the interview. Get the offer.
+              Master system design in <span className="hl">30 days</span>.
             </h2>
           </div>
 

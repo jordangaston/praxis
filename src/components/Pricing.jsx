@@ -3,10 +3,9 @@ import { BRAND_NAME } from '../config';
 
 const FEATURES = [
   'Unlimited mock interviews',
-  'Real FAANG rubrics',
-  'Every interview type',
-  'Rubric-based feedback',
-  'Progress tracking',
+  'Company interview guides',
+  'Role-specific feedback',
+  'Customized 30-day roadmap',
 ];
 
 export default function Pricing() {
@@ -24,7 +23,7 @@ export default function Pricing() {
           style={{ maxWidth: 440, margin: '0 auto', textAlign: 'center', transitionDelay: visible ? '100ms' : '0ms' }}
         >
           <div style={{ marginBottom: 'var(--space-2)' }}>
-            <span className="badge badge--filled">First mock free</span>
+            <span className="badge badge--filled">30 day money back guarantee</span>
           </div>
 
           <div className="eyebrow" style={{ marginBottom: 'var(--space-2)' }}>

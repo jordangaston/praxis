@@ -1,135 +1,47 @@
-const FEATURES = ['Unlimited mock interviews', 'Real FAANG rubrics', 'All interview types', 'Structured feedback', 'Progress tracking'];
+const FEATURES = [
+  'Unlimited mock interviews',
+  'Real FAANG rubrics',
+  'All interview types',
+  'Structured feedback',
+  'Progress tracking',
+];
 
 export default function Pricing() {
   return (
-    <section id="pricing" style={{ background: '#ffffff', padding: '136px 0 80px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px', textAlign: 'center' }}>
-
-        <h2
-          style={{
-            fontSize: 42,
-            lineHeight: 1.06,
-            fontWeight: 500,
-            color: '#000000',
-            margin: '0 0 56px',
-            fontFamily: '"DM Sans", Arial, sans-serif',
-          }}
-        >
+    <section id="pricing" className="section">
+      <div className="container" style={{ textAlign: 'center' }}>
+        <h2 className="section-heading">
           One human session. Or unlimited AI ones.
         </h2>
 
-        {/* Pricing card — centered, max-width 440px */}
-        <div
-          style={{
-            maxWidth: 440,
-            margin: '0 auto',
-            background: '#f6f7f8',
-            border: '1px solid #eeeef2',
-            borderRadius: 4,
-            padding: 40,
-            position: 'relative',
-            textAlign: 'center',
-          }}
-        >
-          {/* FIRST MOCK FREE badge */}
-          <div style={{ marginBottom: 16 }}>
-            <span
-              style={{
-                display: 'inline-block',
-                background: '#183fd9',
-                color: '#ffffff',
-                fontSize: 11,
-                fontWeight: 500,
-                letterSpacing: '0.06em',
-                textTransform: 'uppercase',
-                fontFamily: '"DM Sans", Arial, sans-serif',
-                padding: '4px 12px',
-                borderRadius: 4,
-              }}
-            >
-              FIRST MOCK FREE
-            </span>
+        <div className="card" style={{ maxWidth: 440, margin: '0 auto', textAlign: 'center' }}>
+          <div style={{ marginBottom: 'var(--space-2)' }}>
+            <span className="badge badge--filled">First mock free</span>
           </div>
 
-          <div
-            style={{
-              fontSize: 11,
-              fontWeight: 500,
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: '#6f7790',
-              fontFamily: '"DM Sans", Arial, sans-serif',
-              marginBottom: 12,
-            }}
-          >
-            OFFERED UNLIMITED
+          <div className="eyebrow" style={{ marginBottom: 'var(--space-2)' }}>
+            Offered Unlimited
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 8, marginBottom: 4, justifyContent: 'center' }}>
-            <span
-              style={{
-                fontSize: 72,
-                lineHeight: 1,
-                fontWeight: 500,
-                color: '#000000',
-                fontFamily: '"DM Sans", Arial, sans-serif',
-              }}
-            >
-              $49
-            </span>
-            <span style={{ fontSize: 16, color: '#9ca3af', fontFamily: '"DM Sans", Arial, sans-serif' }}>/mo</span>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 'var(--space-1)', marginBottom: 4, justifyContent: 'center' }}>
+            <span className="pricing-price">$49</span>
+            <span className="pricing-period">/mo</span>
           </div>
-          <div
-            style={{
-              fontSize: 13,
-              marginBottom: 32,
-              color: '#9ca3af',
-              fontFamily: '"DM Sans", Arial, sans-serif',
-            }}
-          >
+          <div style={{ fontSize: 'var(--text-sm)', marginBottom: 'var(--space-4)', color: 'var(--color-ink-faint)' }}>
             vs. $200–400 per human peer mock
           </div>
 
-          <ul style={{ listStyle: 'none', padding: 0, margin: '0 auto 32px', display: 'inline-flex', flexDirection: 'column', gap: 12, textAlign: 'left' }}>
+          <ul style={{ listStyle: 'none', padding: 0, margin: '0 auto var(--space-4)', display: 'inline-flex', flexDirection: 'column', gap: 'var(--space-2)', textAlign: 'left' }}>
             {FEATURES.map(f => (
-              <li
-                key={f}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 12,
-                  fontSize: 15,
-                  color: '#000000',
-                  fontFamily: '"DM Sans", Arial, sans-serif',
-                }}
-              >
-                <span
-                  style={{
-                    width: 18,
-                    height: 18,
-                    borderRadius: '50%',
-                    background: '#183fd9',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: 10,
-                    fontWeight: 500,
-                    color: '#ffffff',
-                    flexShrink: 0,
-                  }}
-                >
-                  ✓
-                </span>
+              <li key={f} style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-2)', fontSize: 'var(--text-base)', color: 'var(--color-ink)' }}>
+                <span className="pricing-check">✓</span>
                 {f}
               </li>
             ))}
           </ul>
 
-          <button
-            className="btn-primary"
-            style={{ width: '100%', justifyContent: 'center' }}
-          >
-            START THE CHALLENGE
+          <button className="btn btn-primary" style={{ width: '100%' }}>
+            Start the challenge
           </button>
         </div>
       </div>

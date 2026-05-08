@@ -1,11 +1,5 @@
 import { useState } from 'react';
 
-const HL = ({ children }) => (
-  <span style={{ background: '#183fd9', color: '#ffffff', borderRadius: 6, padding: '1px 8px' }}>
-    {children}
-  </span>
-);
-
 function TradeoffWidget() {
   const [picked, setPicked] = useState(null);
   const opts = [
@@ -13,12 +7,13 @@ function TradeoffWidget() {
     { id: 1, label: 'NoSQL + cache', tag: 'High throughput' },
     { id: 2, label: 'Event-driven', tag: 'Eventual consistency' },
   ];
+
   return (
-    <div style={{ marginTop: 28 }}>
-      <div style={{ fontSize: 12, fontFamily: 'monospace', color: '#9ca3af', marginBottom: 12, textAlign: 'left' }}>
+    <div style={{ marginTop: 'var(--space-4)' }}>
+      <div style={{ fontSize: 12, fontFamily: 'monospace', color: 'var(--color-ink-faint)', marginBottom: 'var(--space-2)', textAlign: 'left' }}>
         "Design a feed for 10M users."
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-1)' }}>
         {opts.map(o => (
           <button
             key={o.id}
@@ -27,9 +22,9 @@ function TradeoffWidget() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
-              background: picked === o.id ? '#f0f4ff' : '#f6f7f8',
-              border: picked === o.id ? '1px solid #183fd9' : '1px solid #eeeef2',
-              borderRadius: 8,
+              background: picked === o.id ? '#f0f4ff' : 'var(--color-surface-alt)',
+              border: picked === o.id ? '1px solid var(--color-brand)' : '1px solid var(--color-border)',
+              borderRadius: 'var(--radius-sm)',
               padding: '10px 14px',
               cursor: 'pointer',
               textAlign: 'left',
@@ -37,15 +32,15 @@ function TradeoffWidget() {
             }}
           >
             <div>
-              <div style={{ fontSize: 13, fontWeight: 500, fontFamily: '"DM Sans", Arial, sans-serif', color: '#000' }}>
+              <div style={{ fontSize: 'var(--text-sm)', fontWeight: 500, color: 'var(--color-ink)' }}>
                 {o.label}
               </div>
-              <div style={{ fontSize: 11, color: '#9ca3af', fontFamily: '"DM Sans", Arial, sans-serif' }}>
+              <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)' }}>
                 {o.tag}
               </div>
             </div>
             {picked === o.id && (
-              <span style={{ fontSize: 11, color: '#16a34a', fontWeight: 600, fontFamily: '"DM Sans"', whiteSpace: 'nowrap' }}>
+              <span style={{ fontSize: 'var(--text-xs)', color: '#16a34a', fontWeight: 600, whiteSpace: 'nowrap' }}>
                 ✓ Valid
               </span>
             )}
@@ -53,7 +48,7 @@ function TradeoffWidget() {
         ))}
       </div>
       {picked !== null && (
-        <div style={{ marginTop: 10, fontSize: 12, color: '#16a34a', fontFamily: '"DM Sans", Arial, sans-serif', textAlign: 'center' }}>
+        <div style={{ marginTop: 10, fontSize: 'var(--text-xs)', color: '#16a34a', textAlign: 'center' }}>
           All three are valid — interviewers want your reasoning, not a single answer.
         </div>
       )}
@@ -64,8 +59,9 @@ function TradeoffWidget() {
 function RepsWidget() {
   const [hovered, setHovered] = useState(null);
   const sessions = [38, 44, 51, 49, 60, 68, 76, 89];
+
   return (
-    <div style={{ marginTop: 28 }}>
+    <div style={{ marginTop: 'var(--space-4)' }}>
       <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 80 }}>
         {sessions.map((score, i) => (
           <div
@@ -79,10 +75,10 @@ function RepsWidget() {
                 position: 'absolute',
                 top: -24,
                 fontSize: 10,
-                fontFamily: '"DM Sans"',
-                background: '#000',
-                color: '#fff',
-                borderRadius: 4,
+                fontFamily: 'var(--font-sans)',
+                background: 'var(--color-ink)',
+                color: 'var(--color-white)',
+                borderRadius: 'var(--radius-xs)',
                 padding: '2px 6px',
                 whiteSpace: 'nowrap',
                 zIndex: 1,
@@ -94,7 +90,7 @@ function RepsWidget() {
               style={{
                 width: '100%',
                 height: `${score}%`,
-                background: i === sessions.length - 1 ? '#183fd9' : hovered === i ? '#183fd9' : '#e5e7eb',
+                background: i === sessions.length - 1 ? 'var(--color-brand)' : hovered === i ? 'var(--color-brand)' : 'var(--color-surface-dim)',
                 borderRadius: '3px 3px 0 0',
                 transition: 'background 150ms',
               }}
@@ -102,9 +98,9 @@ function RepsWidget() {
           </div>
         ))}
       </div>
-      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: 11, color: '#9ca3af', fontFamily: '"DM Sans"' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: 8, fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)' }}>
         <span>Session 1</span>
-        <span style={{ color: '#183fd9', fontWeight: 500 }}>Session 8 · 89/100</span>
+        <span style={{ color: 'var(--color-brand)', fontWeight: 500 }}>Session 8 · 89/100</span>
       </div>
     </div>
   );
@@ -112,25 +108,25 @@ function RepsWidget() {
 
 function HumanCostWidget({ sessions, setSessions }) {
   return (
-    <div style={{ marginTop: 28 }}>
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 14 }}>
+    <div style={{ marginTop: 'var(--space-4)' }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'var(--space-2)', marginBottom: 14 }}>
         <button
           onClick={() => setSessions(s => Math.max(1, s - 1))}
-          style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid #eeeef2', background: '#fff', fontSize: 18, lineHeight: 1, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"DM Sans"' }}
+          style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid var(--color-border)', background: 'var(--color-surface)', fontSize: 18, lineHeight: 1, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >−</button>
-        <span style={{ fontSize: 14, fontWeight: 500, fontFamily: '"DM Sans"', minWidth: 80, textAlign: 'center', color: '#000' }}>
+        <span style={{ fontSize: 14, fontWeight: 500, minWidth: 80, textAlign: 'center', color: 'var(--color-ink)' }}>
           {sessions} sessions
         </span>
         <button
           onClick={() => setSessions(s => Math.min(20, s + 1))}
-          style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid #eeeef2', background: '#fff', fontSize: 18, lineHeight: 1, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: '"DM Sans"' }}
+          style={{ width: 32, height: 32, borderRadius: '50%', border: '1px solid var(--color-border)', background: 'var(--color-surface)', fontSize: 18, lineHeight: 1, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         >+</button>
       </div>
-      <div style={{ background: '#fff5f5', border: '1px solid #fecaca', borderRadius: 10, padding: '14px 16px', textAlign: 'center' }}>
-        <div style={{ fontSize: 32, fontWeight: 600, color: '#dc2626', fontFamily: '"DM Sans"', lineHeight: 1 }}>
+      <div style={{ background: '#fff5f5', border: '1px solid #fecaca', borderRadius: 'var(--radius-sm)', padding: '14px 16px', textAlign: 'center' }}>
+        <div style={{ fontSize: 'var(--text-2xl)', fontWeight: 600, color: '#dc2626', lineHeight: 1 }}>
           ${(sessions * 150).toLocaleString()}
         </div>
-        <div style={{ fontSize: 12, color: '#9ca3af', fontFamily: '"DM Sans"', marginTop: 4 }}>
+        <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)', marginTop: 4 }}>
           {sessions} × $150/hr with a human
         </div>
       </div>
@@ -140,22 +136,23 @@ function HumanCostWidget({ sessions, setSessions }) {
 
 function AICostWidget({ sessions }) {
   const savings = ((sessions * 150) - (sessions * 0.28)).toFixed(2);
+
   return (
-    <div style={{ marginTop: 28 }}>
+    <div style={{ marginTop: 'var(--space-4)' }}>
       <div style={{ textAlign: 'center', marginBottom: 14 }}>
-        <span style={{ fontSize: 12, color: '#9ca3af', fontFamily: '"DM Sans"' }}>
+        <span style={{ fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)' }}>
           Same {sessions} sessions ↓
         </span>
       </div>
-      <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 10, padding: '14px 16px', textAlign: 'center' }}>
-        <div style={{ fontSize: 32, fontWeight: 600, color: '#16a34a', fontFamily: '"DM Sans"', lineHeight: 1 }}>
+      <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: 'var(--radius-sm)', padding: '14px 16px', textAlign: 'center' }}>
+        <div style={{ fontSize: 'var(--text-2xl)', fontWeight: 600, color: '#16a34a', lineHeight: 1 }}>
           ${(sessions * 0.28).toFixed(2)}
         </div>
-        <div style={{ fontSize: 12, color: '#9ca3af', fontFamily: '"DM Sans"', marginTop: 4 }}>
+        <div style={{ fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)', marginTop: 4 }}>
           {sessions} × $0.28/hr with Offered
         </div>
       </div>
-      <div style={{ marginTop: 10, fontSize: 12, color: '#16a34a', fontFamily: '"DM Sans"', textAlign: 'center', fontWeight: 500 }}>
+      <div style={{ marginTop: 10, fontSize: 'var(--text-xs)', color: '#16a34a', textAlign: 'center', fontWeight: 500 }}>
         You save ${savings}
       </div>
     </div>
@@ -168,14 +165,14 @@ const CARDS = [
     highlight: 'no right answer',
     post: '',
     body: "Only better and worse tradeoffs. You can't cram it. You have to rep it.",
-    Widget: ({ sessions, setSessions }) => <TradeoffWidget />,
+    Widget: () => <TradeoffWidget />,
   },
   {
     pre: 'Reps are the',
     highlight: 'only way',
     post: 'to improve',
     body: 'Nothing gets you comfortable with the format faster than arguing tradeoffs under pressure.',
-    Widget: ({ sessions, setSessions }) => <RepsWidget />,
+    Widget: () => <RepsWidget />,
   },
   {
     pre: 'Human mocks cost',
@@ -189,7 +186,7 @@ const CARDS = [
     highlight: '$0.28/hr',
     post: '',
     body: '100x cheaper. Unlimited reps. The same pressure.',
-    Widget: ({ sessions, setSessions }) => <AICostWidget sessions={sessions} />,
+    Widget: ({ sessions }) => <AICostWidget sessions={sessions} />,
   },
 ];
 
@@ -197,62 +194,25 @@ export default function Problem() {
   const [sessions, setSessions] = useState(5);
 
   return (
-    <section style={{ background: '#f0ede8', padding: '120px 0 80px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
+    <section className="section">
+      <div className="container">
+        <h2 className="section-heading">
+          Practice <span className="hl">system design</span> the way you're <span className="hl">interviewed</span>.
+        </h2>
 
-        <div style={{ textAlign: 'center', marginBottom: 64 }}>
-          <h2
-            style={{
-              fontSize: 48,
-              lineHeight: 1.2,
-              fontWeight: 400,
-              color: '#000000',
-              margin: 0,
-              fontFamily: '"DM Sans", Arial, sans-serif',
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Practice <HL>system design</HL> the way you're interviewed <HL>for real.</HL>
-          </h2>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 12 }}>
+        <div className="problem-grid">
           {CARDS.map((c, i) => (
-            <div
-              key={i}
-              style={{ background: '#faf9f7', borderRadius: 16, padding: '40px 40px 36px', textAlign: 'center' }}
-            >
-              <h3
-                style={{
-                  fontSize: 24,
-                  fontWeight: 500,
-                  color: '#000000',
-                  fontFamily: '"DM Sans", Arial, sans-serif',
-                  lineHeight: 1.3,
-                  margin: '0 0 8px',
-                  letterSpacing: '-0.01em',
-                }}
-              >
+            <div key={i} className="problem-card">
+              <h3 className="problem-card-heading">
                 {c.pre && <>{c.pre} </>}
-                <HL>{c.highlight}</HL>
+                <span className="hl">{c.highlight}</span>
                 {c.post && <> {c.post}</>}
               </h3>
-              <p
-                style={{
-                  fontSize: 14,
-                  lineHeight: 1.65,
-                  color: '#6f7790',
-                  margin: 0,
-                  fontFamily: '"DM Sans", Arial, sans-serif',
-                }}
-              >
-                {c.body}
-              </p>
+              <p className="problem-card-body">{c.body}</p>
               <c.Widget sessions={sessions} setSessions={setSessions} />
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

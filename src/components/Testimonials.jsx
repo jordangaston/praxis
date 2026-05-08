@@ -1,10 +1,5 @@
 import { useState } from 'react';
 
-const BLUE = '#2563eb';
-const GREEN = '#16a34a';
-const ORANGE = '#ea580c';
-const PURPLE = '#7c3aed';
-
 const LOGOS = {
   Amazon: <svg viewBox="0 0 448 512" height="16" fill="currentColor"><path d="M257.7 162.7c-48.7 1.8-169.5 15.5-169.5 117.5 0 109.5 138.3 114 183.5 43.2 6.5 10.2 35.4 37.5 45.3 46.8l56.8-56s-32.3-25.3-32.3-52.8l0-147.1C341.5 89 317 32 229.2 32 141.2 32 94.5 87 94.5 136.3l73.5 6.8c16.3-49.5 54.2-49.5 54.2-49.5 40.7-.1 35.5 29.8 35.5 69.1zm0 86.8c0 80-84.2 68-84.2 17.2 0-47.2 50.5-56.7 84.2-57.8l0 40.6zM393.7 413c-7.7 10-70 67-174.5 67S34.7 408.5 10.2 379c-6.8-7.7 1-11.3 5.5-8.3 73.3 44.5 187.8 117.8 372.5 30.3 7.5-3.7 13.3 2 5.5 12zm39.8 2.2c-6.5 15.8-16 26.8-21.2 31-5.5 4.5-9.5 2.7-6.5-3.8s19.3-46.5 12.7-55c-6.5-8.3-37-4.3-48-3.2-10.8 1-13 2-14-.3-2.3-5.7 21.7-15.5 37.5-17.5 15.7-1.8 41-.8 46 5.7 3.7 5.1 0 27.1-6.5 43.1z" /></svg>,
   Google: <svg viewBox="0 0 24 24" height="16" fill="currentColor"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" /></svg>,
@@ -16,18 +11,18 @@ const LOGOS = {
 };
 
 const TESTIMONIALS = [
-  { company: 'Meta', level: 'E5', color: BLUE, q: 'Failed Meta twice. Ran 40 loops here. Walked in calm. Got the offer.' },
-  { company: 'Google', level: 'L5', color: GREEN, q: 'The feedback actually changes you. After each session I knew what to drill.' },
-  { company: 'Amazon', level: 'SDE II', color: ORANGE, q: 'Two weeks of structured practice changed more than four months of leetcode grinding.' },
-  { company: 'Google', level: 'L4', color: GREEN, q: 'I bombed my first mock badly. By session eight I was hitting every signal they look for.' },
-  { company: 'Microsoft', level: 'SDE III', color: BLUE, q: 'Finally felt like I was prepping for the actual interview, not some watered-down version of it.' },
-  { company: 'Stripe', level: 'E4', color: PURPLE, q: 'The rubric breakdown after each session is unlike anything else I tried. You see exactly where you lost points.' },
-  { company: 'LinkedIn', level: 'Staff', color: BLUE, q: 'Did 20 system design sessions in 10 days. Went from dreading that round to crushing it.' },
-  { company: 'Apple', level: 'L5', color: ORANGE, q: 'I was skeptical an AI could push me like a real interviewer. I was wrong.' },
-  { company: 'Meta', level: 'E6', color: BLUE, q: "Got to my loop already knowing the partner's follow-up patterns. It felt like a cheat code." },
-  { company: 'Stripe', level: 'SDE II', color: PURPLE, q: 'Spent three months on other prep platforms and stalled. Two weeks here and I had three offers.' },
-  { company: 'Amazon', level: 'L4', color: ORANGE, q: 'The behavioral round used to tank me every time. Structured feedback fixed it in a week.' },
-  { company: 'Google', level: 'E5', color: GREEN, q: 'Voice sessions with real-time pushback forced me to articulate trade-offs I had been hand-waving.' },
+  { company: 'Meta',      level: 'E5',     q: 'Failed Meta twice. Ran 40 loops here. Walked in calm. Got the offer.' },
+  { company: 'Google',    level: 'L5',     q: 'The feedback actually changes you. After each session I knew what to drill.' },
+  { company: 'Amazon',    level: 'SDE II', q: 'Two weeks of structured practice changed more than four months of leetcode grinding.' },
+  { company: 'Google',    level: 'L4',     q: 'I bombed my first mock badly. By session eight I was hitting every signal they look for.' },
+  { company: 'Microsoft', level: 'SDE III',q: 'Finally felt like I was prepping for the actual interview, not some watered-down version of it.' },
+  { company: 'Stripe',    level: 'E4',     q: 'The rubric breakdown after each session is unlike anything else I tried. You see exactly where you lost points.' },
+  { company: 'LinkedIn',  level: 'Staff',  q: 'Did 20 system design sessions in 10 days. Went from dreading that round to crushing it.' },
+  { company: 'Apple',     level: 'L5',     q: 'I was skeptical an AI could push me like a real interviewer. I was wrong.' },
+  { company: 'Meta',      level: 'E6',     q: "Got to my loop already knowing the partner's follow-up patterns. It felt like a cheat code." },
+  { company: 'Stripe',    level: 'SDE II', q: 'Spent three months on other prep platforms and stalled. Two weeks here and I had three offers.' },
+  { company: 'Amazon',    level: 'L4',     q: 'The behavioral round used to tank me every time. Structured feedback fixed it in a week.' },
+  { company: 'Google',    level: 'E5',     q: 'Voice sessions with real-time pushback forced me to articulate trade-offs I had been hand-waving.' },
 ];
 
 const PAGE = 6;
@@ -37,96 +32,28 @@ export default function Testimonials() {
   const hasMore = visible < TESTIMONIALS.length;
 
   return (
-    <section style={{ background: '#ffffff', padding: '136px 0 80px' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 28px' }}>
-
-        <h2
-          style={{
-            fontSize: 42,
-            lineHeight: 1.06,
-            fontWeight: 500,
-            color: '#000000',
-            margin: '0 0 56px',
-            fontFamily: '"DM Sans", Arial, sans-serif',
-            textAlign: 'center',
-          }}
-        >
-          See how others passed their interviews
-        </h2>
+    <section className="section">
+      <div className="container">
+        <h2 className="section-heading">See how others passed their interviews</h2>
 
         <div style={{ position: 'relative' }}>
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: 16,
-              paddingBottom: hasMore ? 80 : 0,
-            }}
+            className="testimonials-grid"
+            style={{ paddingBottom: hasMore ? 80 : 0 }}
           >
             {TESTIMONIALS.slice(0, visible).map((x, i) => (
-              <figure
-                key={i}
-                style={{
-                  margin: 0,
-                  background: '#ffffff',
-                  border: '1px solid #eeeef2',
-                  borderTop: `3px solid ${x.color}`,
-                  borderRadius: 4,
-                  padding: 24,
-                  display: 'flex',
-                  flexDirection: 'column',
-                }}
-              >
-                <div
-                  style={{
-                    fontSize: 10,
-                    fontWeight: 600,
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    color: x.color,
-                    fontFamily: '"DM Sans", Arial, sans-serif',
-                    marginBottom: 14,
-                  }}
-                >
+              <figure key={i} className="testimonial-card">
+                <div className="testimonial-label">
                   Passed {x.company} {x.level} Interview
                 </div>
-
-                <blockquote
-                  style={{
-                    flex: 1,
-                    margin: '0 0 20px',
-                    fontSize: 14.5,
-                    lineHeight: 1.65,
-                    color: '#111827',
-                    fontFamily: '"DM Sans", Arial, sans-serif',
-                    fontWeight: 400,
-                  }}
-                >
+                <blockquote className="testimonial-quote">
                   "{x.q}"
                 </blockquote>
-
-                <figcaption
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: 8,
-                    paddingTop: 16,
-                    borderTop: '1px solid #eeeef2',
-                  }}
-                >
-                  <span style={{ color: '#6b7280', display: 'flex', alignItems: 'center' }}>
+                <figcaption className="testimonial-footer">
+                  <span style={{ display: 'flex', alignItems: 'center' }}>
                     {LOGOS[x.company]}
                   </span>
-                  <span
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 500,
-                      color: '#374151',
-                      fontFamily: '"DM Sans", Arial, sans-serif',
-                    }}
-                  >
-                    {x.company}
-                  </span>
+                  <span className="testimonial-company">{x.company}</span>
                 </figcaption>
               </figure>
             ))}
@@ -134,31 +61,23 @@ export default function Testimonials() {
 
           {hasMore && (
             <>
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  height: 220,
-                  background: 'linear-gradient(to bottom, transparent, #ffffff)',
-                  pointerEvents: 'none',
-                }}
-              />
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  display: 'flex',
-                  justifyContent: 'center',
-                  paddingBottom: 8,
-                }}
-              >
+              <div style={{
+                position: 'absolute',
+                bottom: 0, left: 0, right: 0,
+                height: 220,
+                background: 'linear-gradient(to bottom, transparent, var(--color-surface))',
+                pointerEvents: 'none',
+              }} />
+              <div style={{
+                position: 'absolute',
+                bottom: 0, left: 0, right: 0,
+                display: 'flex',
+                justifyContent: 'center',
+                paddingBottom: 8,
+              }}>
                 <button
                   onClick={() => setVisible(v => v + PAGE)}
-                  className="btn-secondary"
+                  className="btn btn-secondary"
                   style={{ display: 'inline-flex', alignItems: 'center', gap: 6 }}
                 >
                   Show more stories
@@ -170,7 +89,6 @@ export default function Testimonials() {
             </>
           )}
         </div>
-
       </div>
     </section>
   );

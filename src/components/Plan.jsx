@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react';
+
 function TargetVisual() {
   const rows = [{ l: 'Type', v: 'System Design' }, { l: 'Level', v: 'L5 / E5' }, { l: 'Company', v: 'Meta' }];
   return (
@@ -132,10 +134,81 @@ function ReadyVisual() {
 }
 
 const STEPS = [
-  { n: '01', t: 'Plan', d: 'Pick your target company and level. We create a plan to get you the offer.', Visual: TargetVisual },
-  { n: '02', t: 'Practice', d: "Complete mock interviews and get structured feedback to close your gaps.", Visual: LoopVisual },
-  { n: '03', t: 'Perform', d: 'Go into your interview with real reps on common questions.', Visual: ReadyVisual },
+  { n: '01', t: 'Plan',     d: 'Pick your target company and level. We create a plan to get you the offer.',    Visual: TargetVisual },
+  { n: '02', t: 'Practice', d: 'Complete mock interviews and get structured feedback to close your gaps.',        Visual: LoopVisual   },
+  { n: '03', t: 'Perform',  d: 'Go into your interview with real reps on common questions.',                     Visual: ReadyVisual  },
 ];
+
+function StepCard({ s, i }) {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      style={{
+        background: '#f6f7f8',
+        border: '1px solid #eeeef2',
+        borderRadius: 4,
+        padding: 32,
+        opacity: 0,
+        transform: 'translateY(40px)',
+        transition: `opacity 0.5s ease ${i * 120}ms, transform 0.5s ease ${i * 120}ms`,
+      }}
+    >
+      <div
+        style={{
+          fontSize: 13,
+          color: '#183fd9',
+          fontFamily: 'monospace',
+          fontWeight: 500,
+          marginBottom: 20,
+        }}
+      >
+        {s.n}
+      </div>
+      <s.Visual />
+      <h3
+        style={{
+          fontSize: 20,
+          fontWeight: 500,
+          color: '#000000',
+          margin: '20px 0 8px',
+          fontFamily: '"DM Sans", Arial, sans-serif',
+        }}
+      >
+        {s.t}
+      </h3>
+      <p
+        style={{
+          fontSize: 15,
+          lineHeight: 1.6,
+          color: '#6f7790',
+          margin: 0,
+          fontFamily: '"DM Sans", Arial, sans-serif',
+        }}
+      >
+        {s.d}
+      </p>
+    </div>
+  );
+}
 
 export default function Plan() {
   return (
@@ -163,50 +236,7 @@ export default function Plan() {
           }}
         >
           {STEPS.map((s, i) => (
-            <div
-              key={i}
-              style={{
-                background: '#f6f7f8',
-                border: '1px solid #eeeef2',
-                borderRadius: 4,
-                padding: 32,
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 13,
-                  color: '#183fd9',
-                  fontFamily: 'monospace',
-                  fontWeight: 500,
-                  marginBottom: 20,
-                }}
-              >
-                {s.n}
-              </div>
-              <s.Visual />
-              <h3
-                style={{
-                  fontSize: 20,
-                  fontWeight: 500,
-                  color: '#000000',
-                  margin: '20px 0 8px',
-                  fontFamily: '"DM Sans", Arial, sans-serif',
-                }}
-              >
-                {s.t}
-              </h3>
-              <p
-                style={{
-                  fontSize: 15,
-                  lineHeight: 1.6,
-                  color: '#6f7790',
-                  margin: 0,
-                  fontFamily: '"DM Sans", Arial, sans-serif',
-                }}
-              >
-                {s.d}
-              </p>
-            </div>
+            <StepCard key={i} s={s} i={i} />
           ))}
         </div>
       </div>

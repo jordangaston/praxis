@@ -291,8 +291,9 @@ details summary::-webkit-details-marker { display: none; }
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Merriweather', serif;
   color: var(--color-ink);
   letter-spacing: -0.3px;
   margin-right: var(--space-1);
@@ -572,8 +573,9 @@ details[open] .faq-icon { transform: rotate(45deg); }
 }
 
 .footer-brand-name {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Merriweather', serif;
   color: var(--color-ink);
   letter-spacing: -0.3px;
 }

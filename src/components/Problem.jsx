@@ -36,7 +36,7 @@ function ChatWidget({ visible }) {
           display: 'flex', alignItems: 'center', justifyContent: 'center',
         }}>
           <svg width="14" height="14" viewBox="0 0 28 28" fill="none">
-            <polyline points="8,14.5 12,18.5 20,10" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <polyline points="8,14.5 12,18.5 20,10" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
         <div style={{
@@ -64,7 +64,7 @@ function ChatWidget({ visible }) {
           alignItems: 'center',
           gap: 5,
         }}>
-          {[0,1,2].map(i => (
+          {[0, 1, 2].map(i => (
             <span
               key={i}
               ref={el => { dotRefs.current[i] = el; }}
@@ -79,8 +79,8 @@ function ChatWidget({ visible }) {
 
 /* ── Card 2: Fanned question cards ── */
 const QUESTIONS = [
-  { q: 'Design a rate limiter', company: 'Google',  level: 'L5', color: '#4285f4' },
-  { q: 'Design Twitter\'s feed', company: 'Meta',    level: 'E5', color: '#1877f2' },
+  { q: 'Design a rate limiter', company: 'Google', level: 'L5', color: '#4285f4' },
+  { q: 'Design Twitter\'s feed', company: 'Meta', level: 'E5', color: '#1877f2' },
   { q: 'Design a URL shortener', company: 'Amazon', level: 'SDE II', color: '#ff9900' },
 ];
 
@@ -91,8 +91,8 @@ function QuestionStackWidget({ visible }) {
   // Final resting rotations/positions for each card (fanned)
   const fan = [
     { rotate: -6, x: -18, y: 8 },
-    { rotate: 0,  x: 0,   y: 0 },
-    { rotate: 6,  x: 18,  y: 8 },
+    { rotate: 0, x: 0, y: 0 },
+    { rotate: 6, x: 18, y: 8 },
   ];
 
   useEffect(() => {
@@ -155,11 +155,11 @@ function QuestionStackWidget({ visible }) {
 
 /* ── Card 3: Goal/target selector ── */
 const COMPANIES = ['Meta', 'Google', 'Amazon', 'Apple', 'Microsoft'];
-const LEVELS    = ['L3', 'L4', 'L5', 'L6', 'L7'];
+const LEVELS = ['L3', 'L4', 'L5', 'L6', 'L7'];
 
 function GoalWidget({ visible }) {
   const [company, setCompany] = useState('Meta');
-  const [level, setLevel]     = useState('L5');
+  const [level, setLevel] = useState('L5');
   const rowRefs = useRef([]);
   const animated = useRef(false);
 
@@ -209,10 +209,10 @@ function GoalWidget({ visible }) {
 
 /* ── Card 4: Rubric scorecard ── */
 const RUBRIC = [
-  { label: 'Architecture',   score: 87 },
-  { label: 'Communication',  score: 91 },
-  { label: 'Tradeoffs',      score: 84 },
-  { label: 'Scalability',    score: 89 },
+  { label: 'Architecture', score: 87 },
+  { label: 'Communication', score: 91 },
+  { label: 'Tradeoffs', score: 84 },
+  { label: 'Scalability', score: 89 },
 ];
 
 function ScorecardWidget({ visible }) {
@@ -287,14 +287,14 @@ const CARDS = [
     pre: `${BRAND_NAME} knows your`,
     highlight: 'goals',
     post: '',
-    body: 'Set your target once. Offered adjusts the difficulty, depth, and expectations to match that company\'s actual bar.',
+    body: 'Set your target once. Praxis adjusts the difficulty, depth, and expectations to match that company\'s actual bar.',
     Widget: ({ visible }) => <GoalWidget visible={visible} />,
   },
   {
     pre: 'Walk in',
     highlight: 'confident',
     post: '',
-    body: 'See exactly where you lost points — and what to fix before your real interview.',
+    body: 'See exactly where your gaps are and how to fill them before your interview.',
     Widget: ({ visible }) => <ScorecardWidget visible={visible} />,
   },
 ];
@@ -306,10 +306,10 @@ export default function Problem() {
     <section className="section">
       <div ref={ref} className="container">
         <h2 className={`section-heading anim-fade-up${visible ? ' is-visible' : ''}`}>
-          Offered simulates <span className="hl">real interviews.</span>
+          Praxis simulates <span className="hl">real interviews.</span>
         </h2>
         <p className={`section-subheading anim-fade-up${visible ? ' is-visible' : ''}`} style={{ transitionDelay: visible ? '80ms' : '0ms' }}>
-          Offered uses our database of 100+ FAANG questions and advanced AI to simulate real system design interviews.
+          Praxis uses our database of 100+ FAANG questions and advanced AI to simulate real system design interviews.
         </p>
 
         <div className="problem-grid">

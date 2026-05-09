@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/unlimited-mock-interviews", "destination": "/", "permanent": false },
+    { "source": "/real-faang-questions", "destination": "/", "permanent": false },
+    { "source": "/30-day-challenge", "destination": "/", "permanent": false }
+  ]
+}

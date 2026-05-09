@@ -303,7 +303,7 @@ export default function Problem() {
   const [ref, visible] = useInView(0.1);
 
   return (
-    <section className="section">
+    <section id="how-it-works" className="section">
       <div ref={ref} className="container">
         <h2 className={`section-heading anim-fade-up${visible ? ' is-visible' : ''}`}>
           Praxis simulates <span className="hl">real interviews.</span>

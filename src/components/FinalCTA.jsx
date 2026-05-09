@@ -25,7 +25,7 @@ export default function FinalCTA() {
               margin: 0,
               letterSpacing: '-0.02em',
             }}>
-              Master system design in <span className="hl">30 days</span>.
+              Master system design in <span className="hl">30 days.</span>
             </h2>
           </div>
 

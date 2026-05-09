@@ -1,1 +1,1 @@
-export const BRAND_NAME = 'Offered';
+export const BRAND_NAME = 'Quorum';

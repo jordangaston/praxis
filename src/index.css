@@ -142,7 +142,7 @@ details summary::-webkit-details-marker { display: none; }
 
 /* Inline emphasis highlight on heading text */
 .hl {
-  background: linear-gradient(135deg, #2d55e8 0%, #1c3fda 100%);
+  background: linear-gradient(135deg, #3a60ee 0%, #1032cb 100%);
   color: var(--color-white);
   border-radius: var(--radius-xs);
   padding: 1px var(--space-1);

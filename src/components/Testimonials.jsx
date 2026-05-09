@@ -12,18 +12,18 @@ const LOGOS = {
 };
 
 const TESTIMONIALS = [
-  { company: 'Meta',      level: 'E5',     q: 'Failed Meta twice. Ran 40 loops here. Walked in calm. Got the offer.' },
-  { company: 'Google',    level: 'L5',     q: 'The feedback actually changes you. After each session I knew what to drill.' },
-  { company: 'Amazon',    level: 'SDE II', q: 'Two weeks of structured practice changed more than four months of leetcode grinding.' },
-  { company: 'Google',    level: 'L4',     q: 'I bombed my first mock badly. By session eight I was hitting every signal they look for.' },
-  { company: 'Microsoft', level: 'SDE III',q: 'Finally felt like I was prepping for the actual interview, not some watered-down version of it.' },
-  { company: 'Stripe',    level: 'E4',     q: 'The rubric breakdown after each session is unlike anything else I tried. You see exactly where you lost points.' },
-  { company: 'LinkedIn',  level: 'Staff',  q: 'Did 20 system design sessions in 10 days. Went from dreading that round to crushing it.' },
-  { company: 'Apple',     level: 'L5',     q: 'I was skeptical an AI could push me like a real interviewer. I was wrong.' },
-  { company: 'Meta',      level: 'E6',     q: "Got to my loop already knowing the partner's follow-up patterns. It felt like a cheat code." },
-  { company: 'Stripe',    level: 'SDE II', q: 'Spent three months on other prep platforms and stalled. Two weeks here and I had three offers.' },
-  { company: 'Amazon',    level: 'L4',     q: 'The behavioral round used to tank me every time. Structured feedback fixed it in a week.' },
-  { company: 'Google',    level: 'E5',     q: 'Voice sessions with real-time pushback forced me to articulate trade-offs I had been hand-waving.' },
+  { company: 'Meta', level: 'E5', q: 'Failed Meta twice. Ran 40 loops here. Walked in calm. Got the offer.' },
+  { company: 'Google', level: 'L5', q: 'The feedback actually changes you. After each session I knew what to drill.' },
+  { company: 'Amazon', level: 'SDE II', q: 'Two weeks of structured practice changed more than four months of leetcode grinding.' },
+  { company: 'Google', level: 'L4', q: 'I bombed my first mock badly. By session eight I was hitting every signal they look for.' },
+  { company: 'Microsoft', level: 'SDE III', q: 'Finally felt like I was prepping for the actual interview, not some watered-down version of it.' },
+  { company: 'Stripe', level: 'E4', q: 'The rubric breakdown after each session is unlike anything else I tried. You see exactly where you lost points.' },
+  { company: 'LinkedIn', level: 'Staff', q: 'Did 20 system design sessions in 10 days. Went from dreading that round to crushing it.' },
+  { company: 'Apple', level: 'L5', q: 'I was skeptical an AI could push me like a real interviewer. I was wrong.' },
+  { company: 'Meta', level: 'E6', q: "Got to my loop already knowing the partner's follow-up patterns. It felt like a cheat code." },
+  { company: 'Stripe', level: 'SDE II', q: 'Spent three months on other prep platforms and stalled. Two weeks here and I had three offers.' },
+  { company: 'Amazon', level: 'L4', q: 'The behavioral round used to tank me every time. Structured feedback fixed it in a week.' },
+  { company: 'Google', level: 'E5', q: 'Voice sessions with real-time pushback forced me to articulate trade-offs I had been hand-waving.' },
 ];
 
 const PAGE = 6;
@@ -37,7 +37,7 @@ export default function Testimonials() {
     <section className="section">
       <div ref={ref} className="container">
         <h2 className={`section-heading anim-fade-up${inView ? ' is-visible' : ''}`}>
-          Stories from engineers who <span className="hl">got the offer</span>
+          Stories from engineers who <span className="hl">got the offer.</span>
         </h2>
 
         <div style={{ position: 'relative' }}>

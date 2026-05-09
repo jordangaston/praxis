@@ -1,3 +1,5 @@
+import { trackCTAClick } from '../analytics';
+
 const logos = [
   {
     name: 'Roblox',
@@ -53,7 +55,7 @@ export default function Hero() {
           </p>
 
           <div className="hero-cta hero-animate hero-animate-4">
-            <button className="btn btn-primary btn-hero">
+            <button className="btn btn-primary btn-hero" onClick={trackCTAClick}>
               Start the challenge
             </button>
           </div>

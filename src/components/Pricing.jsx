@@ -1,5 +1,6 @@
 import useInView from '../hooks/useInView';
 import { BRAND_NAME } from '../config';
+import { trackCTAClick } from '../analytics';
 
 const FEATURES = [
   'Personalized 30-day roadmap',
@@ -47,7 +48,7 @@ export default function Pricing() {
             ))}
           </ul>
 
-          <button className="btn btn-primary" style={{ width: '100%' }}>
+          <button className="btn btn-primary" style={{ width: '100%' }} onClick={trackCTAClick}>
             Start the challenge
           </button>
         </div>

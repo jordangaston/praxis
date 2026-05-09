@@ -1,4 +1,5 @@
 import useInView from '../hooks/useInView';
+import { trackCTAClick } from '../analytics';
 
 export default function FinalCTA() {
   const [ref, visible] = useInView(0.2);
@@ -41,7 +42,7 @@ export default function FinalCTA() {
               fontWeight: 500,
             }}>
             </p>
-            <button className="btn btn-primary">
+            <button className="btn btn-primary" onClick={trackCTAClick}>
               Start the challenge
             </button>
           </div>

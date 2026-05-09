@@ -1,4 +1,5 @@
 import { BRAND_NAME } from '../config';
+import { trackCTAClick } from '../analytics';
 
 export default function Nav() {
   return (
@@ -25,7 +26,7 @@ export default function Nav() {
           <a key={label} href={href} className="nav-link">{label}</a>
         ))}
 
-        <button className="btn btn-primary btn-nav">Start the challenge</button>
+        <button className="btn btn-primary btn-nav" onClick={trackCTAClick}>Start the challenge</button>
       </nav>
     </div>
   );

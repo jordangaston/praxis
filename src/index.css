@@ -210,7 +210,7 @@ details summary::-webkit-details-marker { display: none; }
   letter-spacing: 0.02em;
   cursor: pointer;
   border: 1px solid transparent;
-  transition: opacity 150ms ease;
+  transition: opacity 150ms ease, transform 150ms ease;
   white-space: nowrap;
 }
 
@@ -232,6 +232,7 @@ details summary::-webkit-details-marker { display: none; }
   animation: btn-shine 3.5s ease-in-out infinite;
 }
 .btn-primary:hover { opacity: 0.85; }
+.btn-primary:active { transform: scale(0.96); opacity: 1; transition: transform 80ms ease, opacity 80ms ease; }
 
 /* Hero modifier — larger size, brand elevation shadow (Ch3 §29, Ch4 §10) */
 .btn-hero {

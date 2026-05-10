@@ -9,39 +9,12 @@ export default function FinalCTA() {
       <div className="container">
         <div
           ref={ref}
-          className={`card card--lg anim-fade-up${visible ? ' is-visible' : ''}`}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 'var(--space-6)',
-          }}
+          className={`card card--lg anim-fade-up final-cta-inner${visible ? ' is-visible' : ''}`}
         >
-          <div style={{ flex: '0 0 60%' }}>
-            <h2 style={{
-              fontSize: 'var(--text-2xl)',
-              lineHeight: 1.1,
-              fontWeight: 500,
-              color: 'var(--color-ink)',
-              margin: 0,
-              letterSpacing: '-0.02em',
-            }}>
-              Master system design in <span className="hl">30 days. </span>
-            </h2>
-          </div>
-
-          <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
-            <p style={{
-              fontSize: 'var(--text-xs)',
-              letterSpacing: '0.06em',
-              textTransform: 'uppercase',
-              color: 'var(--color-ink-faint)',
-              maxWidth: 220,
-              lineHeight: 1.7,
-              margin: 0,
-              fontWeight: 500,
-            }}>
-            </p>
+          <h2 className="final-cta-heading">
+            Master system design in <span className="hl">30 days.</span>
+          </h2>
+          <div className="final-cta-action">
             <button className="btn btn-primary" onClick={trackCTAClick}>
               Start the challenge
             </button>

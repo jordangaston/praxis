@@ -146,6 +146,8 @@ details summary::-webkit-details-marker { display: none; }
   color: var(--color-white);
   border-radius: var(--radius-xs);
   padding: 1px var(--space-1);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 
@@ -666,4 +668,129 @@ details[open] .faq-icon { transform: rotate(45deg); }
 @media (prefers-reduced-motion: reduce) {
   .hero-animate { animation: none; }
   .anim-fade-up { opacity: 1; transform: none; transition: none; }
+}
+
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+
+.final-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.final-cta-heading {
+  font-size: var(--text-2xl);
+  line-height: 1.1;
+  font-weight: 500;
+  color: var(--color-ink);
+  margin: 0;
+  letter-spacing: -0.02em;
+  flex: 0 0 60%;
+}
+
+.final-cta-action {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+/* ============================================================
+   RESPONSIVE — mobile first breakpoint at 768px
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+  /* Layout */
+  .section {
+    padding: var(--space-6) 0 var(--space-5);
+  }
+
+  /* Typography */
+  .section-heading {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-subheading {
+    font-size: var(--text-base);
+    margin-top: calc(-1 * var(--space-3));
+    margin-bottom: var(--space-5);
+  }
+
+  /* Nav — hide text links, keep logo + CTA */
+  .nav-link { display: none; }
+  .nav {
+    padding: var(--space-1) var(--space-1) var(--space-1) var(--space-2);
+    gap: var(--space-1);
+  }
+
+  /* Hero */
+  .hero-heading {
+    font-size: 36px;
+  }
+
+  .hero-subheadline {
+    font-size: var(--text-base);
+    margin-top: var(--space-2);
+  }
+
+  .hero-cta {
+    margin-top: var(--space-4);
+  }
+
+  .hero-logos {
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+
+  /* Problem — single column */
+  .problem-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .problem-card {
+    padding: var(--space-4) var(--space-3) var(--space-3);
+  }
+
+  /* Testimonials — single column */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pricing card */
+  .card--lg {
+    padding: var(--space-4);
+  }
+
+  /* FinalCTA — stack vertically */
+  .final-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .final-cta-heading {
+    font-size: var(--text-xl);
+    flex: none;
+  }
+
+  .final-cta-action {
+    justify-content: flex-start;
+  }
+
+  /* Footer — single column */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-1);
+  }
 }
